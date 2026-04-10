@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>シーシャバー 売上データ分析</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      background: #1a1a2e;
+      color: #eee;
+      padding: 24px;
+    }
+    h1 {
+      text-align: center;
+      font-size: 22px;
+      margin-bottom: 8px;
+      color: #c9a96e;
+      letter-spacing: 2px;
+    }
+    .subtitle {
+      text-align: center;
+      font-size: 13px;
+      color: #888;
+      margin-bottom: 32px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .card {
+      background: #16213e;
+      border-radius: 12px;
+      padding: 24px;
+      border: 1px solid #0f3460;
+    }
+    .card.full-width {
+      grid-column: 1 / -1;
+    }
+    .card h2 {
+      font-size: 15px;
+      color: #c9a96e;
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #0f3460;
+    }
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+      grid-column: 1 / -1;
+    }
+    .stat-box {
+      background: #16213e;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      border: 1px solid #0f3460;
+    }
+    .stat-label {
+      font-size: 12px;
+      color: #888;
+      margin-bottom: 8px;
+    }
+    .stat-value {
+      font-size: 24px;
+      font-weight: bold;
+      color: #c9a96e;
+    }
+    .stat-sub {
+      font-size: 11px;
+      color: #666;
+      margin-top: 4px;
+    }
+    canvas { max-height: 320px; }
+  </style>
+</head>
+<body>
+
+<h1>シーシャバー 売上データ分析</h1>
+<p class="subtitle">2026年1月25日〜3月31日（参照店舗：錦三丁目・13組）</p>
+
+<div class="grid">
+
+  <!-- KPI -->
+  <div class="stats-row">
+    <div class="stat-box">
+      <div class="stat-label">累計売上</div>
+      <div class="stat-value">¥2,400,899</div>
+      <div class="stat-sub">66営業日</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-label">1日平均売上</div>
+      <div class="stat-value">¥36,377</div>
+      <div class="stat-sub">全期間平均</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-label">累計客数</div>
+      <div class="stat-value">621名</div>
+      <div class="stat-sub">平均9.4名/日</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-label">平均客単価</div>
+      <div class="stat-value">¥3,866</div>
+      <div class="stat-sub">全期間平均</div>
+    </div>
+  </div>
+
+  <!-- 日別売上 -->
+  <div class="card full-width">
+    <h2>日別売上推移</h2>
+    <canvas id="dailyChart"></canvas>
+  </div>
+
+  <!-- 月別集計 -->
+  <div class="card">
+    <h2>月別売上合計</h2>
+    <canvas id="monthlyChart"></canvas>
+  </div>
+
+  <!-- 曜日別 -->
+  <div class="card">
+    <h2>曜日別 平均売上</h2>
+    <canvas id="weeklyChart"></canvas>
+  </div>
+
+  <!-- 客数推移 -->
+  <div class="card full-width">
+    <h2>日別客数推移</h2>
+    <canvas id="customerChart"></canvas>
+  </div>
+
+</div>
+
+<script>
+const dailyData = [
+  { date: '1/25', day: '日', sales: 39400, customers: 10 },
+  { date: '1/26', day: '月', sales: 20500, customers: 5 },
+  { date: '1/27', day: '火', sales: 28600, customers: 5 },
+  { date: '1/28', day: '水', sales: 3500,  customers: 1 },
+  { date: '1/29', day: '木', sales: 11600, customers: 4 },
+  { date: '1/30', day: '金', sales: 18000, customers: 6 },
+  { date: '1/31', day: '土', sales: 17300, customers: 6 },
+  { date: '2/1',  day: '日', sales: 31600, customers: 11 },
+  { date: '2/2',  day: '月', sales: 26100, customers: 6 },
+  { date: '2/3',  day: '火', sales: 47200, customers: 12 },
+  { date: '2/4',  day: '水', sales: 31199, customers: 9 },
+  { date: '2/5',  day: '木', sales: 47800, customers: 12 },
+  { date: '2/6',  day: '金', sales: 40000, customers: 11 },
+  { date: '2/7',  day: '土', sales: 20500, customers: 5 },
+  { date: '2/8',  day: '日', sales: 17000, customers: 5 },
+  { date: '2/9',  day: '月', sales: 13600, customers: 3 },
+  { date: '2/10', day: '火', sales: 0,     customers: 0 },
+  { date: '2/11', day: '水', sales: 17500, customers: 5 },
+  { date: '2/12', day: '木', sales: 28700, customers: 9 },
+  { date: '2/13', day: '金', sales: 27400, customers: 9 },
+  { date: '2/14', day: '土', sales: 72200, customers: 19 },
+  { date: '2/15', day: '日', sales: 37000, customers: 11 },
+  { date: '2/16', day: '月', sales: 47300, customers: 12 },
+  { date: '2/17', day: '火', sales: 42700, customers: 13 },
+  { date: '2/18', day: '水', sales: 28900, customers: 9 },
+  { date: '2/19', day: '木', sales: 10700, customers: 2 },
+  { date: '2/20', day: '金', sales: 35600, customers: 10 },
+  { date: '2/21', day: '土', sales: 54700, customers: 11 },
+  { date: '2/22', day: '日', sales: 62900, customers: 18 },
+  { date: '2/23', day: '月', sales: 33400, customers: 9 },
+  { date: '2/24', day: '火', sales: 52700, customers: 13 },
+  { date: '2/25', day: '水', sales: 11750, customers: 4 },
+  { date: '2/26', day: '木', sales: 12150, customers: 4 },
+  { date: '2/27', day: '金', sales: 32250, customers: 10 },
+  { date: '2/28', day: '土', sales: 22550, customers: 7 },
+  { date: '3/1',  day: '日', sales: 13600, customers: 5 },
+  { date: '3/2',  day: '月', sales: 42300, customers: 10 },
+  { date: '3/3',  day: '火', sales: 30700, customers: 9 },
+  { date: '3/4',  day: '水', sales: 26300, customers: 9 },
+  { date: '3/5',  day: '木', sales: 18500, customers: 5 },
+  { date: '3/6',  day: '金', sales: 62000, customers: 12 },
+  { date: '3/7',  day: '土', sales: 72100, customers: 17 },
+  { date: '3/8',  day: '日', sales: 0,     customers: 0 },
+  { date: '3/9',  day: '月', sales: 35850, customers: 8 },
+  { date: '3/10', day: '火', sales: 33300, customers: 9 },
+  { date: '3/11', day: '水', sales: 35000, customers: 10 },
+  { date: '3/12', day: '木', sales: 67900, customers: 17 },
+  { date: '3/13', day: '金', sales: 53000, customers: 11 },
+  { date: '3/14', day: '土', sales: 27400, customers: 8 },
+  { date: '3/15', day: '日', sales: 31200, customers: 9 },
+  { date: '3/16', day: '月', sales: 31850, customers: 7 },
+  { date: '3/17', day: '火', sales: 41800, customers: 11 },
+  { date: '3/18', day: '水', sales: 68100, customers: 15 },
+  { date: '3/19', day: '木', sales: 63900, customers: 15 },
+  { date: '3/20', day: '金', sales: 79050, customers: 16 },
+  { date: '3/21', day: '土', sales: 40450, customers: 13 },
+  { date: '3/22', day: '日', sales: 43000, customers: 12 },
+  { date: '3/23', day: '月', sales: 104600, customers: 15 },
+  { date: '3/24', day: '火', sales: 55300, customers: 17 },
+  { date: '3/25', day: '水', sales: 21800, customers: 7 },
+  { date: '3/26', day: '木', sales: 47500, customers: 15 },
+  { date: '3/27', day: '金', sales: 108700, customers: 25 },
+  { date: '3/28', day: '土', sales: 34600, customers: 10 },
+  { date: '3/29', day: '日', sales: 25200, customers: 7 },
+  { date: '3/30', day: '月', sales: 6800,  customers: 2 },
+  { date: '3/31', day: '火', sales: 34800, customers: 9 },
+];
+
+const dayColors = {
+  '月': '#4e8ef7', '火': '#4e8ef7', '水': '#4e8ef7', '木': '#4e8ef7',
+  '金': '#c9a96e', '土': '#e87e7e', '日': '#e87e7e'
+};
+
+// 7日移動平均
+function movingAverage(data, window) {
+  return data.map((_, i) => {
+    if (i < window - 1) return null;
+    const slice = data.slice(i - window + 1, i + 1);
+    return Math.round(slice.reduce((a, b) => a + b, 0) / window);
+  });
+}
+
+const salesValues = dailyData.map(d => d.sales);
+const ma7 = movingAverage(salesValues, 7);
+
+// 日別売上チャート
+new Chart(document.getElementById('dailyChart'), {
+  type: 'bar',
+  data: {
+    labels: dailyData.map(d => `${d.date}(${d.day})`),
+    datasets: [
+      {
+        label: '日別売上',
+        data: salesValues,
+        backgroundColor: dailyData.map(d => {
+          if (d.day === '金') return 'rgba(201,169,110,0.7)';
+          if (d.day === '土' || d.day === '日') return 'rgba(232,126,126,0.7)';
+          return 'rgba(78,142,247,0.6)';
+        }),
+        borderColor: dailyData.map(d => {
+          if (d.day === '金') return '#c9a96e';
+          if (d.day === '土' || d.day === '日') return '#e87e7e';
+          return '#4e8ef7';
+        }),
+        borderWidth: 1,
+        yAxisID: 'y',
+      },
+      {
+        label: '7日移動平均',
+        data: ma7,
+        type: 'line',
+        borderColor: '#00d4aa',
+        backgroundColor: 'transparent',
+        borderWidth: 2,
+        pointRadius: 0,
+        tension: 0.4,
+        yAxisID: 'y',
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: { labels: { color: '#ccc', font: { size: 12 } } },
+      tooltip: {
+        callbacks: {
+          label: ctx => `¥${ctx.raw?.toLocaleString() ?? '-'}`
+        }
+      }
+    },
+    scales: {
+      x: {
+        ticks: {
+          color: '#888',
+          font: { size: 9 },
+          maxRotation: 45,
+        },
+        grid: { color: '#1e3a5f' }
+      },
+      y: {
+        ticks: {
+          color: '#888',
+          callback: v => `¥${(v/10000).toFixed(0)}万`
+        },
+        grid: { color: '#1e3a5f' }
+      }
+    }
+  }
+});
+
+// 月別チャート
+new Chart(document.getElementById('monthlyChart'), {
+  type: 'bar',
+  data: {
+    labels: ['1月（7日間）', '2月（28日間）', '3月（31日間）'],
+    datasets: [{
+      label: '月間売上',
+      data: [138900, 905399, 1356600],
+      backgroundColor: ['rgba(201,169,110,0.5)', 'rgba(78,142,247,0.6)', 'rgba(0,212,170,0.6)'],
+      borderColor: ['#c9a96e', '#4e8ef7', '#00d4aa'],
+      borderWidth: 2,
+      borderRadius: 6,
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        callbacks: {
+          label: ctx => `¥${ctx.raw.toLocaleString()}`
+        }
+      }
+    },
+    scales: {
+      x: { ticks: { color: '#ccc' }, grid: { color: '#1e3a5f' } },
+      y: {
+        ticks: {
+          color: '#888',
+          callback: v => `¥${(v/10000).toFixed(0)}万`
+        },
+        grid: { color: '#1e3a5f' }
+      }
+    }
+  }
+});
+
+// 曜日別チャート
+new Chart(document.getElementById('weeklyChart'), {
+  type: 'bar',
+  data: {
+    labels: ['月', '火', '水', '木', '金', '土', '日'],
+    datasets: [{
+      label: '1日平均売上',
+      data: [36230, 36710, 27116, 34306, 50667, 40200, 30090],
+      backgroundColor: [
+        'rgba(78,142,247,0.6)',
+        'rgba(78,142,247,0.6)',
+        'rgba(78,142,247,0.4)',
+        'rgba(78,142,247,0.6)',
+        'rgba(201,169,110,0.8)',
+        'rgba(232,126,126,0.7)',
+        'rgba(232,126,126,0.6)',
+      ],
+      borderColor: ['#4e8ef7','#4e8ef7','#4e8ef7','#4e8ef7','#c9a96e','#e87e7e','#e87e7e'],
+      borderWidth: 2,
+      borderRadius: 6,
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        callbacks: {
+          label: ctx => `¥${ctx.raw.toLocaleString()}`
+        }
+      }
+    },
+    scales: {
+      x: { ticks: { color: '#ccc', font: { size: 14 } }, grid: { color: '#1e3a5f' } },
+      y: {
+        ticks: {
+          color: '#888',
+          callback: v => `¥${(v/10000).toFixed(1)}万`
+        },
+        grid: { color: '#1e3a5f' }
+      }
+    }
+  }
+});
+
+// 客数チャート
+new Chart(document.getElementById('customerChart'), {
+  type: 'bar',
+  data: {
+    labels: dailyData.map(d => `${d.date}(${d.day})`),
+    datasets: [
+      {
+        label: '客数',
+        data: dailyData.map(d => d.customers),
+        backgroundColor: dailyData.map(d => {
+          if (d.day === '金') return 'rgba(201,169,110,0.7)';
+          if (d.day === '土' || d.day === '日') return 'rgba(232,126,126,0.7)';
+          return 'rgba(78,142,247,0.6)';
+        }),
+        borderColor: dailyData.map(d => {
+          if (d.day === '金') return '#c9a96e';
+          if (d.day === '土' || d.day === '日') return '#e87e7e';
+          return '#4e8ef7';
+        }),
+        borderWidth: 1,
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: { labels: { color: '#ccc' } },
+      tooltip: { callbacks: { label: ctx => `${ctx.raw}名` } }
+    },
+    scales: {
+      x: {
+        ticks: { color: '#888', font: { size: 9 }, maxRotation: 45 },
+        grid: { color: '#1e3a5f' }
+      },
+      y: {
+        ticks: { color: '#888', callback: v => `${v}名` },
+        grid: { color: '#1e3a5f' }
+      }
+    }
+  }
+});
+</script>
+
+</body>
+</html>
