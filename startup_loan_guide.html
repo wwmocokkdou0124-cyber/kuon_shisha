@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>創業融資のご案内</title>
+<style>
+  body {
+    font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", sans-serif;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 24px;
+    color: #2d2d2d;
+    line-height: 1.8;
+    background: #fff;
+  }
+  h1 {
+    text-align: center;
+    font-size: 28px;
+    border-bottom: 3px solid #1a5276;
+    padding-bottom: 16px;
+    margin-bottom: 32px;
+    color: #1a5276;
+  }
+  h2 {
+    font-size: 22px;
+    color: #1a5276;
+    border-left: 5px solid #1a5276;
+    padding-left: 14px;
+    margin-top: 48px;
+    margin-bottom: 20px;
+  }
+  h3 {
+    font-size: 18px;
+    color: #2c3e50;
+    margin-top: 32px;
+    margin-bottom: 12px;
+  }
+  p {
+    margin: 12px 0;
+  }
+  /* タイムラインのスタイル */
+  .timeline {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 32px 0;
+    padding: 0;
+    position: relative;
+  }
+  .timeline::before {
+    content: "";
+    position: absolute;
+    top: 36px;
+    left: 5%;
+    right: 5%;
+    height: 4px;
+    background: #1a5276;
+    z-index: 0;
+  }
+  .timeline-step {
+    text-align: center;
+    flex: 1;
+    position: relative;
+    z-index: 1;
+    padding: 0 4px;
+  }
+  .timeline-step .circle {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: #1a5276;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 12px;
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 1.3;
+    text-align: center;
+  }
+  .timeline-step .label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #2c3e50;
+  }
+  .timeline-step .sub {
+    font-size: 12px;
+    color: #666;
+    margin-top: 4px;
+  }
+  .timeline-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 12px;
+    font-size: 24px;
+    color: #1a5276;
+    flex: 0 0 32px;
+    z-index: 1;
+  }
+  /* ポイントカード */
+  .point-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 24px 0;
+  }
+  .point-card {
+    border: 1px solid #d5dbdb;
+    border-radius: 8px;
+    padding: 20px;
+    background: #fafcfd;
+  }
+  .point-card .num {
+    display: inline-block;
+    background: #1a5276;
+    color: #fff;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 28px;
+    font-size: 14px;
+    font-weight: bold;
+    margin-right: 8px;
+  }
+  .point-card .title {
+    font-weight: bold;
+    font-size: 16px;
+    color: #1a5276;
+    display: inline;
+  }
+  .point-card .desc {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #444;
+  }
+  /* チェックリスト */
+  .checklist {
+    background: #f4f7f9;
+    border-radius: 8px;
+    padding: 24px 28px;
+    margin: 20px 0;
+  }
+  .checklist ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .checklist li {
+    padding: 8px 0;
+    border-bottom: 1px dotted #bbb;
+    font-size: 15px;
+  }
+  .checklist li:last-child {
+    border-bottom: none;
+  }
+  .checklist li::before {
+    content: "\2610 ";
+    font-size: 18px;
+    margin-right: 6px;
+    color: #1a5276;
+  }
+  /* テーブル */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 14px;
+  }
+  table th {
+    background: #1a5276;
+    color: #fff;
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: bold;
+  }
+  table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #ddd;
+  }
+  table tr:nth-child(even) {
+    background: #f8f9fa;
+  }
+  /* 注意ボックス */
+  .note-box {
+    background: #fff8e1;
+    border-left: 4px solid #f9a825;
+    padding: 16px 20px;
+    margin: 20px 0;
+    border-radius: 0 8px 8px 0;
+    font-size: 14px;
+  }
+  .info-box {
+    background: #e8f4fd;
+    border-left: 4px solid #1a5276;
+    padding: 16px 20px;
+    margin: 20px 0;
+    border-radius: 0 8px 8px 0;
+    font-size: 14px;
+  }
+  /* セクション区切り */
+  .section-divider {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 40px 0;
+  }
+  /* 計画書構成 */
+  .plan-structure {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 24px 0;
+  }
+  .plan-block {
+    border: 2px solid #1a5276;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .plan-block-header {
+    background: #1a5276;
+    color: #fff;
+    padding: 10px 16px;
+    font-weight: bold;
+    font-size: 15px;
+    text-align: center;
+  }
+  .plan-block-body {
+    padding: 16px;
+    font-size: 14px;
+  }
+  .plan-block-body ul {
+    margin: 0;
+    padding-left: 20px;
+  }
+  .plan-block-body li {
+    padding: 4px 0;
+  }
+  /* 6W2H テーブル */
+  .analysis-table td:first-child {
+    font-weight: bold;
+    white-space: nowrap;
+    color: #1a5276;
+    width: 180px;
+  }
+  /* フッター */
+  .footer {
+    text-align: center;
+    margin-top: 60px;
+    padding-top: 20px;
+    border-top: 2px solid #1a5276;
+    font-size: 13px;
+    color: #888;
+  }
+  /* 印刷用 */
+  @media print {
+    body {
+      padding: 20px;
+      font-size: 12px;
+    }
+    .point-cards {
+      grid-template-columns: 1fr 1fr;
+    }
+    h1 { font-size: 22px; }
+    h2 { font-size: 18px; }
+  }
+</style>
+</head>
+<body>
+
+<h1>創業融資サポートのご案内</h1>
+
+<p style="text-align: center; font-size: 16px; color: #555;">
+  創業時の資金調達を、計画書の作成から金融機関との面談まで一貫してサポートいたします。<br>
+  本資料では、サポートの流れと事前にご準備いただきたい事項をご案内します。
+</p>
+
+<!-- ============================================================ -->
+<h2>1. サポートの流れ</h2>
+
+<p>ご相談から融資実行まで、おおむね<strong>3〜4週間</strong>が目安です。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 60px;">STEP</th>
+      <th style="width: 130px;">時期の目安</th>
+      <th>内容</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:center; font-weight:bold; color:#1a5276;">1</td>
+      <td>初回面談</td>
+      <td>
+        <strong>ご相談・調達可能性の判断</strong><br>
+        事業内容やご経歴、自己資金の状況などをヒアリングし、融資を受けられる可能性を判断いたします。
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:center; font-weight:bold; color:#1a5276;">2</td>
+      <td>約1週間後</td>
+      <td>
+        <strong>創業計画書の作成</strong><br>
+        事業の詳細をお伺いしながら、創業計画書を一緒に作成します。損益計画・資金計画・事業概要など、金融機関が求める書類を整えます。<br>
+        <span style="font-size:13px; color:#666;">※ この段階で着手金を頂戴いたします。</span>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:center; font-weight:bold; color:#1a5276;">3</td>
+      <td>約2週間後</td>
+      <td>
+        <strong>金融機関との面談</strong><br>
+        面談対策を行ったうえで、金融機関との面談に臨んでいただきます。想定質問への回答準備もサポートいたします。
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:center; font-weight:bold; color:#1a5276;">4</td>
+      <td>面談から約10日<br>〜2週間後</td>
+      <td>
+        <strong>融資実行</strong><br>
+        審査を経て融資が実行されます。<br>
+        <span style="font-size:13px; color:#666;">※ 融資実行後に成功報酬を頂戴いたします。</span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<hr class="section-divider">
+
+<!-- ============================================================ -->
+<h2>2. 審査で重視される6つのポイント</h2>
+
+<p>
+  創業融資の審査では、主に以下の6つの項目が重視されます。<br>
+  事前に状況を把握しておくことで、融資の可能性を高めることができます。
+</p>
+
+<div class="point-cards">
+
+  <div class="point-card">
+    <span class="num">1</span>
+    <span class="title">自己資金</span>
+    <div class="desc">
+      事業に投資する純然たるご自身の資金です。創業への本気度や準備の度合いを示す重要なポイントとなります。<br>
+      <strong>目安：必要資金の3割以上</strong>が理想的です。
+    </div>
+  </div>
+
+  <div class="point-card">
+    <span class="num">2</span>
+    <span class="title">通帳（お金の流れ）</span>
+    <div class="desc">
+      直近6ヶ月分の通帳の内容が確認されます。公共料金や家賃の支払い状況、自己資金が預貯金として管理されているかなどがチェックされます。
+    </div>
+  </div>
+
+  <div class="point-card">
+    <span class="num">3</span>
+    <span class="title">税金の納付状況</span>
+    <div class="desc">
+      税金に未納があると、原則として融資を受けることができません。確定申告をされている方は、納税状況をご確認ください。
+    </div>
+  </div>
+
+  <div class="point-card">
+    <span class="num">4</span>
+    <span class="title">個人信用情報</span>
+    <div class="desc">
+      日本政策金融公庫はCICで個人信用情報を照会します。クレジットやローンの延滞・破産等の「異動情報」がないことが重要です。<br>
+      <span style="font-size:13px;">※ ご自身の情報はCICに開示請求できます。</span>
+    </div>
+  </div>
+
+  <div class="point-card">
+    <span class="num">5</span>
+    <span class="title">経験（キャリア）</span>
+    <div class="desc">
+      創業する事業に関連する経験が重視されます。<strong>5年以上の経験</strong>があると有利です。未経験の場合は、それを補う工夫をアピールすることが大切です。
+    </div>
+  </div>
+
+  <div class="point-card">
+    <span class="num">6</span>
+    <span class="title">事業計画</span>
+    <div class="desc">
+      実現可能で具体的な事業計画が求められます。売上の見通し、資金使途、返済計画などを明確にする必要があります。計画書の作成は私たちがサポートいたします。
+    </div>
+  </div>
+
+</div>
+
+<hr class="section-divider">
+
+<!-- ============================================================ -->
+<h2>3. 初回面談時にお持ちいただくもの</h2>
+
+<p>調達可能性の正確な判断のため、以下の資料をご持参ください。</p>
+
+<div class="checklist">
+  <ul>
+    <li>事業計画書（作成されている場合）</li>
+    <li>店舗・事務所の候補物件の資料</li>
+    <li>資金調達して購入予定のものの一覧（作成されている場合）</li>
+    <li>預金通帳（直近6ヶ月分）</li>
+    <li>個人のお借入れがある場合はその明細</li>
+    <li>創業に関するその他の資料（見積書、契約書など）</li>
+    <li>ヒアリングシート（事前にお送りいたします）</li>
+  </ul>
+</div>
+
+<div class="info-box">
+  全ての資料が揃っていなくても、面談は可能です。まずはお気軽にご相談ください。
+</div>
+
+<hr class="section-divider">
+
+<!-- ============================================================ -->
+<h2>4. 作成する創業計画書の内容</h2>
+
+<p>
+  融資審査を通過するため、以下の構成で創業計画書を作成します。<br>
+  お客さまと一緒に内容を検討しながら進めますので、専門知識がなくても安心です。
+</p>
+
+<div class="plan-structure">
+  <div class="plan-block">
+    <div class="plan-block-header">定性面（事業の中身）</div>
+    <div class="plan-block-body">
+      <ul>
+        <li>創業動機・目的</li>
+        <li>創業者の経歴・スキル</li>
+        <li>事業内容（商品・サービスの特徴）</li>
+        <li>強み・アピールポイント</li>
+        <li>対象顧客・出店エリア</li>
+        <li>他店との差別化ポイント</li>
+      </ul>
+    </div>
+  </div>
+  <div class="plan-block">
+    <div class="plan-block-header">定量面（お金の計画）</div>
+    <div class="plan-block-body">
+      <ul>
+        <li>資金計画（設備資金・運転資金の内訳）</li>
+        <li>調達方法の内訳（自己資金・借入金）</li>
+        <li>3ヶ年損益計画（36ヶ月月次計画）</li>
+        <li>売上計画の根拠</li>
+        <li>予測資金繰り表</li>
+        <li>返済可能性の証明</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<h3>事業計画で検討する項目（6W2H）</h3>
+
+<table class="analysis-table">
+  <thead>
+    <tr><th>項目</th><th>検討内容</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Who（誰が）</td><td>創業者の概要・経歴・スキル</td></tr>
+    <tr><td>Whom（誰に）</td><td>対象顧客層（メインターゲット・サブターゲット）</td></tr>
+    <tr><td>Where（どこで）</td><td>出店エリア・立地条件</td></tr>
+    <tr><td>What（何を）</td><td>提供する商品・サービスの内容</td></tr>
+    <tr><td>Why（なぜ）</td><td>創業動機・市場環境・事業の必要性</td></tr>
+    <tr><td>When（いつ）</td><td>営業時間・開業時期</td></tr>
+    <tr><td>How to（どのように）</td><td>業態・差別化ポイント・運営方法</td></tr>
+    <tr><td>How much（いくらで）</td><td>商品・サービスの価格設定</td></tr>
+  </tbody>
+</table>
+
+<hr class="section-divider">
+
+<!-- ============================================================ -->
+<h2>5. 計画書作成の進め方</h2>
+
+<p>計画書の作成は、以下のステップで進めます。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 60px;">順序</th>
+      <th style="width: 150px;">工程</th>
+      <th>内容</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:center; font-weight:bold;">1</td>
+      <td>基礎情報のヒアリング</td>
+      <td>事業内容・経歴・資金状況などの基本情報をお伺いします。</td>
+    </tr>
+    <tr>
+      <td style="text-align:center; font-weight:bold;">2</td>
+      <td>検討資料のお渡し</td>
+      <td>概要書のテンプレートと基礎数字の検討資料をお渡しします。</td>
+    </tr>
+    <tr>
+      <td style="text-align:center; font-weight:bold;">3</td>
+      <td>事前検討（お客さま）</td>
+      <td>お渡しした資料にご記入のうえ、メール等でご返送ください。</td>
+    </tr>
+    <tr>
+      <td style="text-align:center; font-weight:bold;">4</td>
+      <td>たたき台の作成</td>
+      <td>ご返送いただいた資料をもとに、計画書のたたき台を作成します。</td>
+    </tr>
+    <tr>
+      <td style="text-align:center; font-weight:bold;">5</td>
+      <td>共同作業で完成</td>
+      <td>たたき台をもとに対面でヒアリングしながら、損益計画の数字を詰め、資金繰り表を作成し、計画書を完成させます。</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="note-box">
+  <strong>お願い：</strong>STEP 3の事前検討をしっかり行っていただくことで、STEP 5を1日で完了できます。
+  事前のご準備が不十分な場合は、完成まで追加の日程が必要になることがありますのでご協力をお願いいたします。
+</div>
+
+<div class="info-box">
+  計画書の作成はお客さまと一緒に進めます。面談時にご自身で内容を説明できるようにしておくことが、融資成功の鍵となります。
+</div>
+
+<hr class="section-divider">
+
+<!-- ============================================================ -->
+<h2>6. 資金計画について</h2>
+
+<p>創業に必要な資金を「設備資金」と「運転資金」に分けて整理します。</p>
+
+<h3>設備資金の例</h3>
+<table>
+  <thead>
+    <tr><th>項目</th><th>内容</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>内外装工事費</td><td>店舗の内装・外装工事にかかる費用</td></tr>
+    <tr><td>厨房設備</td><td>厨房機器・調理設備の購入費用</td></tr>
+    <tr><td>什器・備品</td><td>家具、食器類、レジ等の備品費用</td></tr>
+    <tr><td>保証金・敷金</td><td>店舗物件の保証金・敷金</td></tr>
+    <tr><td>その他</td><td>車両、OA機器、パソコン等</td></tr>
+  </tbody>
+</table>
+
+<h3>運転資金の例</h3>
+<table>
+  <thead>
+    <tr><th>項目</th><th>内容</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>仕入代</td><td>開業時の初期仕入れ費用</td></tr>
+    <tr><td>人件費</td><td>開業後の従業員給与（約2〜3ヶ月分）</td></tr>
+    <tr><td>家賃</td><td>開業後の店舗家賃（約2〜3ヶ月分）</td></tr>
+    <tr><td>その他諸経費</td><td>広告費、光熱費等の当面の運営費用</td></tr>
+  </tbody>
+</table>
+
+<div class="info-box">
+  運転資金は一般的に<strong>2〜3ヶ月分</strong>が融資対象の目安となります。
+</div>
+
+<hr class="section-divider">
+
+<!-- ============================================================ -->
+<h2>7. 融資の返済について</h2>
+
+<p>金融機関は、融資の返済が可能かどうかを<strong>「キャッシュフロー」</strong>で判断します。</p>
+
+<div class="info-box">
+  <strong>キャッシュフローの計算式</strong><br><br>
+  <span style="font-size:16px;">
+    キャッシュフロー ＝ 経常利益 ＋ 減価償却費 − 法人税等
+  </span><br><br>
+  <strong>判断基準：</strong>年間返済額 ≦ キャッシュフロー<br><br>
+  つまり、事業から生まれるキャッシュフローで融資の返済が十分にまかなえることを計画書で示すことが重要です。
+</div>
+
+<hr class="section-divider">
+
+<!-- ============================================================ -->
+<h2>8. 融資成功のために大切なこと</h2>
+
+<p>創業融資は過去の事業実績がないため、<strong>定性面（お人柄や事業への熱意）</strong>が特に重視されます。</p>
+
+<table>
+  <thead>
+    <tr><th>重視されるポイント</th><th>内容</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>創業への決意</strong></td>
+      <td>なぜこの事業をやりたいのか、ご自身の言葉でしっかり伝えましょう。</td>
+    </tr>
+    <tr>
+      <td><strong>経歴のアピール</strong></td>
+      <td>単なる経歴の羅列ではなく、「何を経験し、どんなスキルを身に付け、それが今回の創業にどう役立つか」を伝えましょう。</td>
+    </tr>
+    <tr>
+      <td><strong>お金の管理</strong></td>
+      <td>通帳の内容がきちんとしていることで、堅実さ・信頼性が伝わります。</td>
+    </tr>
+    <tr>
+      <td><strong>ご家族の理解</strong></td>
+      <td>創業についてご家族の理解があることも、審査ではプラスに評価されます。</td>
+    </tr>
+    <tr>
+      <td><strong>具体的な計画</strong></td>
+      <td>数字の根拠が明確で、実現可能性のある計画が求められます。</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="note-box">
+  <strong>重要なお願い</strong><br>
+  金融機関との面談では、事実を正直にお伝えください。クレジットやローンの情報は金融機関側でも確認できるため、事実と異なる説明はかえって信用を損なう結果となります。
+</div>
+
+<hr class="section-divider">
+
+<div class="footer">
+  <p>本資料に関するご質問・ご相談はお気軽にお問い合わせください。</p>
+</div>
+
+</body>
+</html>
