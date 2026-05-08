@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>わんすけん - 愛犬のダイエット手帳</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+  :root {
+    --bg: #fff7ec;
+    --card: #ffffff;
+    --primary: #ff8a4c;
+    --primary-dark: #e0682a;
+    --accent: #6cc070;
+    --accent-dark: #4a9c4f;
+    --warn: #e25555;
+    --text: #3a2e26;
+    --muted: #8a7a6c;
+    --border: #f1e3d0;
+    --shadow: 0 6px 20px rgba(180, 120, 60, 0.12);
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic UI", "Meiryo", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+  header {
+    background: linear-gradient(135deg, #ffb27a 0%, #ff8a4c 100%);
+    color: #fff;
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: var(--shadow);
+  }
+  .brand { font-weight: 700; font-size: 18px; letter-spacing: 0.5px; }
+  .brand .dog { font-size: 22px; margin-right: 4px; }
+  .score-pill {
+    background: rgba(255,255,255,0.25);
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 14px;
+  }
+  main { max-width: 720px; margin: 0 auto; padding: 16px 14px 90px; }
+  .card {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 16px;
+    margin-bottom: 14px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+  }
+  h2 { font-size: 16px; margin: 0 0 10px; display: flex; align-items: center; gap: 6px; }
+  h3 { font-size: 14px; margin: 12px 0 6px; color: var(--muted); }
+  label { font-size: 13px; color: var(--muted); display: block; margin-top: 8px; }
+  input, select, textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: #fffdf9;
+    font-size: 15px;
+    color: var(--text);
+    margin-top: 4px;
+  }
+  input:focus, select:focus, textarea:focus { outline: 2px solid var(--primary); border-color: var(--primary); }
+  button {
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 16px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.05s, background 0.15s;
+  }
+  button:hover { background: var(--primary-dark); }
+  button:active { transform: scale(0.97); }
+  button.ghost { background: transparent; color: var(--primary); border: 1px solid var(--primary); }
+  button.ghost:hover { background: rgba(255,138,76,0.1); }
+  button.danger { background: var(--warn); }
+  button.small { padding: 6px 10px; font-size: 12px; }
+  .row { display: flex; gap: 8px; flex-wrap: wrap; }
+  .row > * { flex: 1; min-width: 0; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .stat {
+    background: #fff5e6;
+    border-radius: 12px;
+    padding: 10px 12px;
+    text-align: center;
+  }
+  .stat .num { font-size: 22px; font-weight: 700; color: var(--primary-dark); }
+  .stat .label { font-size: 11px; color: var(--muted); }
+  .progress {
+    height: 14px;
+    border-radius: 8px;
+    background: #f5e8d6;
+    overflow: hidden;
+    margin-top: 4px;
+    position: relative;
+  }
+  .progress > div {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent) 0%, #98d39c 100%);
+    transition: width 0.4s;
+  }
+  .progress.over > div { background: linear-gradient(90deg, var(--warn) 0%, #ff8c8c 100%); }
+  .character {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    background: #fff8ef;
+    padding: 12px;
+    border-radius: 14px;
+    border: 2px dashed var(--primary);
+  }
+  .character .avatar {
+    font-size: 42px;
+    flex: 0 0 auto;
+    line-height: 1;
+  }
+  .character .bubble {
+    background: #fff;
+    padding: 10px 12px;
+    border-radius: 12px;
+    font-size: 14px;
+    position: relative;
+    flex: 1;
+    border: 1px solid var(--border);
+  }
+  .character .bubble:before {
+    content: "";
+    position: absolute;
+    left: -8px;
+    top: 14px;
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-right-color: #fff;
+  }
+  .log-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+  }
+  .log-item:last-child { border-bottom: none; }
+  .log-item .meta { font-size: 11px; color: var(--muted); }
+  .empty { color: var(--muted); font-size: 13px; text-align: center; padding: 14px 0; }
+  nav.tabs {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+    display: flex;
+    border-top: 1px solid var(--border);
+    box-shadow: 0 -4px 14px rgba(180,120,60,0.08);
+    z-index: 9;
+  }
+  nav.tabs button {
+    flex: 1;
+    background: transparent;
+    color: var(--muted);
+    border-radius: 0;
+    padding: 10px 4px 8px;
+    font-size: 11px;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+  }
+  nav.tabs button .ic { font-size: 20px; }
+  nav.tabs button.active { color: var(--primary); }
+  nav.tabs button:hover { background: #fff5e6; }
+  .view { display: none; }
+  .view.active { display: block; }
+  .badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: #fff0e0;
+    color: var(--primary-dark);
+    font-size: 11px;
+    font-weight: 700;
+    margin-left: 4px;
+  }
+  .badge.ok { background: #e8f5ea; color: var(--accent-dark); }
+  .badge.warn { background: #fde6e6; color: var(--warn); }
+  .star { color: #f0b400; }
+  .muted { color: var(--muted); font-size: 12px; }
+  .tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+  .tag-row button.small { background: #fff5e6; color: var(--primary-dark); border: 1px solid var(--border); }
+  .tag-row button.small:hover { background: #ffe7c7; }
+  hr { border: none; border-top: 1px solid var(--border); margin: 12px 0; }
+  .center { text-align: center; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand"><span class="dog">🐕</span><span id="brandName">わんすけん</span></div>
+  <div class="score-pill">今日のスコア <span id="todayScore">--</span></div>
+</header>
+
+<main>
+
+  <!-- ホーム -->
+  <section class="view active" id="view-home">
+    <div class="card character">
+      <div class="avatar">🐾</div>
+      <div class="bubble" id="adviceBubble">プロフィールを設定すると、わんちゃんに合わせたアドバイスをくれるよ！</div>
+    </div>
+
+    <div class="card">
+      <h2>📊 今日の摂取カロリー</h2>
+      <div id="calorieSummary">
+        <div class="grid2">
+          <div class="stat"><div class="num" id="kcalIntake">0</div><div class="label">摂取 (kcal)</div></div>
+          <div class="stat"><div class="num" id="kcalBurn">0</div><div class="label">消費 (kcal)</div></div>
+        </div>
+        <h3>目標カロリー <span id="kcalTarget">--</span> kcal に対して</h3>
+        <div class="progress" id="kcalBar"><div style="width:0%"></div></div>
+        <div class="muted" id="kcalNote" style="margin-top:6px;"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>📅 今日の記録</h2>
+      <div id="todayLogs"></div>
+    </div>
+
+    <div class="card">
+      <h2>⚖️ 体重の推移</h2>
+      <canvas id="weightChart" height="160"></canvas>
+      <div class="muted center" id="weightHint" style="margin-top:6px;"></div>
+    </div>
+  </section>
+
+  <!-- 食事記録 -->
+  <section class="view" id="view-meal">
+    <div class="card">
+      <h2>🍚 食事・おやつを記録</h2>
+      <label>種類</label>
+      <select id="mealType">
+        <option value="meal">ごはん（ドライフード）</option>
+        <option value="wet">ウェットフード</option>
+        <option value="treat">おやつ</option>
+        <option value="other">その他</option>
+      </select>
+      <div class="row">
+        <div>
+          <label>名前 / メモ</label>
+          <input type="text" id="mealName" placeholder="例: ロイヤルカナン" />
+        </div>
+        <div>
+          <label>量 (g)</label>
+          <input type="number" id="mealGrams" min="0" step="1" placeholder="50" />
+        </div>
+      </div>
+      <div class="row">
+        <div>
+          <label>カロリー密度 (kcal/100g)</label>
+          <input type="number" id="mealKcal100" min="0" step="1" placeholder="ドライ目安: 350" />
+        </div>
+        <div>
+          <label>または合計kcalを直接入力</label>
+          <input type="number" id="mealKcalTotal" min="0" step="1" placeholder="任意" />
+        </div>
+      </div>
+      <div class="tag-row">
+        <button class="small" data-preset='{"name":"一般的なドライフード","kcal":360}'>ドライ目安 360</button>
+        <button class="small" data-preset='{"name":"ウェットフード","kcal":100}'>ウェット目安 100</button>
+        <button class="small" data-preset='{"name":"ささみ(ゆで)","kcal":105}'>ささみ 105</button>
+        <button class="small" data-preset='{"name":"ボーロ","kcal":390}'>ボーロ 390</button>
+        <button class="small" data-preset='{"name":"ジャーキー","kcal":300}'>ジャーキー 300</button>
+      </div>
+      <div style="margin-top:10px;">
+        <button id="addMealBtn">記録する</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>🗓️ 食事ログ</h2>
+      <div id="mealLogs"></div>
+    </div>
+  </section>
+
+  <!-- 体重 -->
+  <section class="view" id="view-weight">
+    <div class="card">
+      <h2>⚖️ 体重を記録</h2>
+      <div class="row">
+        <div>
+          <label>体重 (kg)</label>
+          <input type="number" id="weightInput" min="0" step="0.01" placeholder="5.20" />
+        </div>
+        <div>
+          <label>日付</label>
+          <input type="date" id="weightDate" />
+        </div>
+      </div>
+      <div style="margin-top:10px;">
+        <button id="addWeightBtn">記録する</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>📈 体重グラフ</h2>
+      <canvas id="weightChartFull" height="200"></canvas>
+    </div>
+
+    <div class="card">
+      <h2>🗂️ 履歴</h2>
+      <div id="weightLogs"></div>
+    </div>
+  </section>
+
+  <!-- 散歩・運動 -->
+  <section class="view" id="view-walk">
+    <div class="card">
+      <h2>🚶 散歩・運動を記録</h2>
+      <div class="row">
+        <div>
+          <label>時間 (分)</label>
+          <input type="number" id="walkMin" min="0" step="1" placeholder="30" />
+        </div>
+        <div>
+          <label>強度</label>
+          <select id="walkIntensity">
+            <option value="slow">のんびり (×2)</option>
+            <option value="normal" selected>普通の散歩 (×3)</option>
+            <option value="fast">速め/ジョギング (×4)</option>
+            <option value="play">ドッグラン/遊び (×5)</option>
+          </select>
+        </div>
+      </div>
+      <label>メモ</label>
+      <input type="text" id="walkNote" placeholder="例: 公園を一周" />
+      <div style="margin-top:10px;">
+        <button id="addWalkBtn">記録する</button>
+      </div>
+      <div class="muted" style="margin-top:6px;">※ 消費kcal = 体重(kg) × 時間(h) × 強度係数 で目安計算</div>
+    </div>
+
+    <div class="card">
+      <h2>🐾 散歩ログ</h2>
+      <div id="walkLogs"></div>
+    </div>
+  </section>
+
+  <!-- 設定 -->
+  <section class="view" id="view-profile">
+    <div class="card">
+      <h2>🐶 わんちゃんプロフィール</h2>
+      <label>お名前</label>
+      <input type="text" id="dogName" placeholder="例: クウ" />
+      <div class="row">
+        <div>
+          <label>犬種</label>
+          <input type="text" id="dogBreed" placeholder="例: 柴犬" />
+        </div>
+        <div>
+          <label>年齢 (歳)</label>
+          <input type="number" id="dogAge" min="0" step="0.1" placeholder="3" />
+        </div>
+      </div>
+      <div class="row">
+        <div>
+          <label>現在の体重 (kg)</label>
+          <input type="number" id="dogWeight" min="0" step="0.01" placeholder="8.5" />
+        </div>
+        <div>
+          <label>目標体重 (kg)</label>
+          <input type="number" id="dogTarget" min="0" step="0.01" placeholder="7.5" />
+        </div>
+      </div>
+      <label>ライフステージ・状態</label>
+      <select id="dogStage">
+        <option value="puppy_under4">子犬 (4ヶ月未満) ×3.0</option>
+        <option value="puppy_4to12">子犬 (4〜12ヶ月) ×2.0</option>
+        <option value="adult_intact">成犬 (避妊去勢なし) ×1.8</option>
+        <option value="adult_neutered" selected>成犬 (避妊去勢済) ×1.6</option>
+        <option value="senior">シニア犬 ×1.4</option>
+        <option value="overweight">肥満傾向 ×1.4</option>
+        <option value="diet">減量中 ×1.0</option>
+        <option value="active">活動的 ×2.0</option>
+      </select>
+      <div style="margin-top:10px;">
+        <button id="saveProfileBtn">保存</button>
+        <button class="ghost" id="exportBtn">データ書き出し</button>
+        <button class="danger" id="resetBtn">全データ削除</button>
+      </div>
+      <hr />
+      <h3>計算結果</h3>
+      <div class="muted" id="rerInfo"></div>
+    </div>
+
+    <div class="card">
+      <h2>ℹ️ このアプリについて</h2>
+      <p class="muted" style="font-size:13px;">
+        あすけん風に、愛犬の食事・運動・体重を記録してダイエットをサポートするアプリです。
+        データはこの端末のブラウザ内 (localStorage) にのみ保存されます。
+        カロリー計算は獣医学的な目安（RER = 70 × 体重^0.75、DER = RER × 係数）に基づきますが、
+        実際の食事量は獣医師さんと相談してくださいね。
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<nav class="tabs">
+  <button data-view="home" class="active"><span class="ic">🏠</span>ホーム</button>
+  <button data-view="meal"><span class="ic">🍚</span>食事</button>
+  <button data-view="weight"><span class="ic">⚖️</span>体重</button>
+  <button data-view="walk"><span class="ic">🚶</span>散歩</button>
+  <button data-view="profile"><span class="ic">⚙️</span>設定</button>
+</nav>
+
+<script>
+"use strict";
+
+const STORAGE_KEY = "wansuken_v1";
+const todayStr = () => {
+  const d = new Date();
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, "0");
+  const dd = String(d.getDate()).padStart(2, "0");
+  return `${y}-${m}-${dd}`;
+};
+const fmtTime = (iso) => {
+  const d = new Date(iso);
+  return `${String(d.getHours()).padStart(2,"0")}:${String(d.getMinutes()).padStart(2,"0")}`;
+};
+
+const STAGE_FACTORS = {
+  puppy_under4: 3.0,
+  puppy_4to12: 2.0,
+  adult_intact: 1.8,
+  adult_neutered: 1.6,
+  senior: 1.4,
+  overweight: 1.4,
+  diet: 1.0,
+  active: 2.0,
+};
+
+const INTENSITY = { slow: 2, normal: 3, fast: 4, play: 5 };
+
+function loadState() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return defaultState();
+    const s = JSON.parse(raw);
+    return Object.assign(defaultState(), s);
+  } catch {
+    return defaultState();
+  }
+}
+function defaultState() {
+  return {
+    profile: {
+      name: "", breed: "", age: 0, weight: 0, target: 0, stage: "adult_neutered",
+    },
+    meals: [],   // {id, ts, type, name, grams, kcal}
+    weights: [], // {id, date, weight}
+    walks: [],   // {id, ts, minutes, intensity, kcal, note}
+  };
+}
+function save() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+}
+let state = loadState();
+
+// --- Calorie target ---
+function calcRER(weight) {
+  if (!weight || weight <= 0) return 0;
+  return 70 * Math.pow(weight, 0.75);
+}
+function calcDER(weight, stage) {
+  const rer = calcRER(weight);
+  const f = STAGE_FACTORS[stage] || 1.6;
+  return rer * f;
+}
+
+// --- Today aggregates ---
+function todaysMeals() {
+  return state.meals.filter(m => m.ts.startsWith(todayStr()));
+}
+function todaysWalks() {
+  return state.walks.filter(w => w.ts.startsWith(todayStr()));
+}
+function sumIntake() {
+  return todaysMeals().reduce((s, m) => s + (m.kcal || 0), 0);
+}
+function sumBurn() {
+  return todaysWalks().reduce((s, w) => s + (w.kcal || 0), 0);
+}
+
+// --- Score (0-100) ---
+function calcScore() {
+  const target = calcDER(state.profile.weight, state.profile.stage);
+  if (!target) return null;
+  const intake = sumIntake();
+  const ratio = intake / target;
+  let score = 100;
+  // 摂取ペナルティ: 過剰/不足
+  if (ratio > 1) score -= Math.min(50, (ratio - 1) * 100);
+  else if (ratio < 0.5) score -= Math.min(30, (0.5 - ratio) * 60);
+  // 散歩ボーナス
+  const walkMin = todaysWalks().reduce((s, w) => s + w.minutes, 0);
+  if (walkMin >= 30) score += 5;
+  else if (walkMin === 0) score -= 10;
+  // 体重記録ボーナス
+  if (state.weights.some(w => w.date === todayStr())) score += 5;
+  else score -= 5;
+  return Math.max(0, Math.min(100, Math.round(score)));
+}
+
+// --- Advice ---
+function buildAdvice() {
+  const p = state.profile;
+  if (!p.weight) return "プロフィールでわんちゃんの体重と状態を入れてね🐾";
+  const target = calcDER(p.weight, p.stage);
+  const intake = sumIntake();
+  const burn = sumBurn();
+  const remain = target - intake;
+  const name = p.name || "わんちゃん";
+  const lines = [];
+
+  if (intake === 0) {
+    lines.push(`${name}の今日のごはんはまだ未記録だね。記録して管理しよう！`);
+  } else if (intake > target * 1.1) {
+    lines.push(`今日は目標より ${Math.round(intake - target)} kcal オーバーぎみ💦 おやつを少し控えめに。`);
+  } else if (intake < target * 0.6) {
+    lines.push(`今日はまだ ${Math.round(remain)} kcal 余裕があるよ。食べすぎ注意で、しっかり食べさせてね。`);
+  } else {
+    lines.push(`いいペース！残り約 ${Math.max(0, Math.round(remain))} kcal で目標達成だよ。`);
+  }
+
+  if (p.target && p.weight > p.target) {
+    const diff = (p.weight - p.target).toFixed(2);
+    lines.push(`目標体重まであと ${diff} kg。散歩を少し長めに🐕‍🦺`);
+  } else if (p.target && p.weight < p.target) {
+    lines.push(`目標体重を下回ってるよ。${name}の様子を見つつ獣医師さんに相談してね。`);
+  }
+
+  const walkMin = todaysWalks().reduce((s, w) => s + w.minutes, 0);
+  if (walkMin === 0) lines.push(`今日はまだ散歩記録ゼロ。少しでもお散歩いこう！`);
+  else if (walkMin >= 60) lines.push(`今日は ${walkMin} 分も運動できたね、すごい！`);
+
+  return lines.join(" ");
+}
+
+// --- Render ---
+const $ = (sel) => document.querySelector(sel);
+const $$ = (sel) => document.querySelectorAll(sel);
+
+function renderHome() {
+  const target = calcDER(state.profile.weight, state.profile.stage);
+  const intake = sumIntake();
+  const burn = sumBurn();
+  $("#kcalIntake").textContent = Math.round(intake);
+  $("#kcalBurn").textContent = Math.round(burn);
+  $("#kcalTarget").textContent = target ? Math.round(target) : "--";
+  const ratio = target ? intake / target : 0;
+  const bar = $("#kcalBar");
+  bar.firstElementChild.style.width = `${Math.min(100, ratio * 100).toFixed(1)}%`;
+  bar.classList.toggle("over", ratio > 1);
+  $("#kcalNote").textContent = target
+    ? (ratio > 1 ? `目標を ${Math.round(intake - target)} kcal オーバー` : `あと ${Math.round(target - intake)} kcal`)
+    : "プロフィールを設定するとカロリー目標が表示されます";
+
+  const score = calcScore();
+  $("#todayScore").textContent = score == null ? "--" : `${score}点`;
+  $("#adviceBubble").textContent = buildAdvice();
+  $("#brandName").textContent = state.profile.name ? `${state.profile.name}のわんすけん` : "わんすけん";
+
+  // today logs
+  const meals = todaysMeals();
+  const walks = todaysWalks();
+  const wLog = state.weights.find(w => w.date === todayStr());
+  const container = $("#todayLogs");
+  if (!meals.length && !walks.length && !wLog) {
+    container.innerHTML = `<div class="empty">まだ今日の記録はないよ</div>`;
+  } else {
+    let html = "";
+    if (wLog) html += `<div class="log-item"><span>⚖️ 体重 ${wLog.weight} kg</span><span class="meta">${wLog.date}</span></div>`;
+    meals.forEach(m => {
+      const ic = m.type === "treat" ? "🍪" : m.type === "wet" ? "🥫" : m.type === "other" ? "🍽" : "🍚";
+      html += `<div class="log-item"><span>${ic} ${escapeHtml(m.name || "(無題)")} ${m.grams ? m.grams+"g" : ""}</span><span class="meta">${Math.round(m.kcal)} kcal / ${fmtTime(m.ts)}</span></div>`;
+    });
+    walks.forEach(w => {
+      html += `<div class="log-item"><span>🚶 ${w.minutes}分 ${escapeHtml(w.note || "")}</span><span class="meta">-${Math.round(w.kcal)} kcal / ${fmtTime(w.ts)}</span></div>`;
+    });
+    container.innerHTML = html;
+  }
+
+  drawWeightChart("#weightChart", 14);
+}
+
+function renderMeal() {
+  const list = [...state.meals].sort((a,b) => b.ts.localeCompare(a.ts)).slice(0, 50);
+  const container = $("#mealLogs");
+  if (!list.length) {
+    container.innerHTML = `<div class="empty">まだ食事ログはありません</div>`;
+    return;
+  }
+  container.innerHTML = list.map(m => {
+    const ic = m.type === "treat" ? "🍪" : m.type === "wet" ? "🥫" : m.type === "other" ? "🍽" : "🍚";
+    const date = m.ts.slice(0, 10);
+    return `<div class="log-item">
+      <span>${ic} ${escapeHtml(m.name || "(無題)")} ${m.grams ? m.grams+"g" : ""}<div class="meta">${date} ${fmtTime(m.ts)}</div></span>
+      <span><b>${Math.round(m.kcal)}</b> kcal <button class="small ghost" data-del-meal="${m.id}">削除</button></span>
+    </div>`;
+  }).join("");
+  container.querySelectorAll("[data-del-meal]").forEach(b => {
+    b.onclick = () => {
+      state.meals = state.meals.filter(m => m.id !== b.dataset.delMeal);
+      save(); renderAll();
+    };
+  });
+}
+
+function renderWeight() {
+  const list = [...state.weights].sort((a,b) => b.date.localeCompare(a.date));
+  const container = $("#weightLogs");
+  if (!list.length) {
+    container.innerHTML = `<div class="empty">まだ体重ログはありません</div>`;
+  } else {
+    container.innerHTML = list.map(w => {
+      return `<div class="log-item">
+        <span>${w.date}</span>
+        <span><b>${w.weight}</b> kg <button class="small ghost" data-del-w="${w.id}">削除</button></span>
+      </div>`;
+    }).join("");
+    container.querySelectorAll("[data-del-w]").forEach(b => {
+      b.onclick = () => {
+        state.weights = state.weights.filter(w => w.id !== b.dataset.delW);
+        save(); renderAll();
+      };
+    });
+  }
+  drawWeightChart("#weightChartFull", 60);
+}
+
+function renderWalk() {
+  const list = [...state.walks].sort((a,b) => b.ts.localeCompare(a.ts)).slice(0, 60);
+  const container = $("#walkLogs");
+  if (!list.length) {
+    container.innerHTML = `<div class="empty">まだ散歩ログはありません</div>`;
+    return;
+  }
+  container.innerHTML = list.map(w => {
+    return `<div class="log-item">
+      <span>🚶 ${w.minutes}分 (${labelIntensity(w.intensity)}) ${escapeHtml(w.note || "")}<div class="meta">${w.ts.slice(0,10)} ${fmtTime(w.ts)}</div></span>
+      <span><b>-${Math.round(w.kcal)}</b> kcal <button class="small ghost" data-del-walk="${w.id}">削除</button></span>
+    </div>`;
+  }).join("");
+  container.querySelectorAll("[data-del-walk]").forEach(b => {
+    b.onclick = () => {
+      state.walks = state.walks.filter(w => w.id !== b.dataset.delWalk);
+      save(); renderAll();
+    };
+  });
+}
+
+function renderProfile() {
+  const p = state.profile;
+  $("#dogName").value = p.name || "";
+  $("#dogBreed").value = p.breed || "";
+  $("#dogAge").value = p.age || "";
+  $("#dogWeight").value = p.weight || "";
+  $("#dogTarget").value = p.target || "";
+  $("#dogStage").value = p.stage || "adult_neutered";
+  const rer = calcRER(p.weight);
+  const der = calcDER(p.weight, p.stage);
+  $("#rerInfo").innerHTML = p.weight
+    ? `RER (安静時必要エネルギー): <b>${rer.toFixed(0)} kcal</b><br>DER (1日の目安): <b>${der.toFixed(0)} kcal</b>（係数 ${STAGE_FACTORS[p.stage]}）`
+    : "体重を入力すると目安カロリーが表示されます";
+}
+
+function labelIntensity(i) {
+  return { slow: "のんびり", normal: "普通", fast: "速め", play: "遊び" }[i] || i;
+}
+
+function escapeHtml(s) {
+  return String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+}
+
+// --- Chart ---
+let chartInstances = {};
+function drawWeightChart(selector, days) {
+  const ctx = document.querySelector(selector);
+  if (!ctx) return;
+  if (chartInstances[selector]) chartInstances[selector].destroy();
+
+  const since = new Date();
+  since.setDate(since.getDate() - days);
+  const data = [...state.weights]
+    .filter(w => new Date(w.date) >= since)
+    .sort((a,b) => a.date.localeCompare(b.date));
+  const labels = data.map(d => d.date.slice(5));
+  const values = data.map(d => d.weight);
+  const targetLine = state.profile.target ? Array(data.length).fill(state.profile.target) : null;
+
+  const datasets = [{
+    label: "体重 (kg)",
+    data: values,
+    borderColor: "#ff8a4c",
+    backgroundColor: "rgba(255,138,76,0.15)",
+    tension: 0.25,
+    fill: true,
+    pointRadius: 4,
+  }];
+  if (targetLine) {
+    datasets.push({
+      label: "目標",
+      data: targetLine,
+      borderColor: "#6cc070",
+      borderDash: [6, 4],
+      fill: false,
+      pointRadius: 0,
+    });
+  }
+
+  if (selector === "#weightChart") {
+    const hint = document.querySelector("#weightHint");
+    if (!data.length) hint.textContent = "まだデータがないよ。体重タブから記録してみよう！";
+    else hint.textContent = `直近${days}日 / ${data.length}件のデータ`;
+  }
+
+  chartInstances[selector] = new Chart(ctx, {
+    type: "line",
+    data: { labels, datasets },
+    options: {
+      responsive: true,
+      plugins: { legend: { display: targetLine ? true : false } },
+      scales: {
+        y: { beginAtZero: false, ticks: { precision: 2 } },
+      },
+    },
+  });
+}
+
+function renderAll() {
+  renderHome();
+  renderMeal();
+  renderWeight();
+  renderWalk();
+  renderProfile();
+}
+
+// --- Events ---
+$$("nav.tabs button").forEach(b => {
+  b.onclick = () => {
+    $$("nav.tabs button").forEach(x => x.classList.remove("active"));
+    b.classList.add("active");
+    $$(".view").forEach(v => v.classList.remove("active"));
+    $(`#view-${b.dataset.view}`).classList.add("active");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+});
+
+// Meal preset
+$$(".tag-row [data-preset]").forEach(b => {
+  b.onclick = () => {
+    const p = JSON.parse(b.dataset.preset);
+    $("#mealName").value = p.name;
+    $("#mealKcal100").value = p.kcal;
+  };
+});
+
+$("#addMealBtn").onclick = () => {
+  const type = $("#mealType").value;
+  const name = $("#mealName").value.trim();
+  const grams = parseFloat($("#mealGrams").value);
+  const kcal100 = parseFloat($("#mealKcal100").value);
+  const kcalTotal = parseFloat($("#mealKcalTotal").value);
+  let kcal = 0;
+  if (!isNaN(kcalTotal) && kcalTotal > 0) kcal = kcalTotal;
+  else if (!isNaN(grams) && !isNaN(kcal100)) kcal = grams * kcal100 / 100;
+  if (!kcal) { alert("g + kcal/100g か、合計kcalを入力してね"); return; }
+  state.meals.push({
+    id: crypto.randomUUID(),
+    ts: new Date().toISOString(),
+    type, name, grams: isNaN(grams) ? null : grams, kcal,
+  });
+  save();
+  $("#mealName").value = "";
+  $("#mealGrams").value = "";
+  $("#mealKcal100").value = "";
+  $("#mealKcalTotal").value = "";
+  renderAll();
+};
+
+$("#weightDate").value = todayStr();
+$("#addWeightBtn").onclick = () => {
+  const w = parseFloat($("#weightInput").value);
+  const d = $("#weightDate").value || todayStr();
+  if (!w || w <= 0) { alert("体重を入力してね"); return; }
+  // 同日のデータは置き換え
+  state.weights = state.weights.filter(x => x.date !== d);
+  state.weights.push({ id: crypto.randomUUID(), date: d, weight: w });
+  // プロフィール体重も最新値に同期
+  if (d === todayStr()) {
+    state.profile.weight = w;
+  }
+  save();
+  $("#weightInput").value = "";
+  renderAll();
+};
+
+$("#addWalkBtn").onclick = () => {
+  const min = parseFloat($("#walkMin").value);
+  const intensity = $("#walkIntensity").value;
+  const note = $("#walkNote").value.trim();
+  if (!min || min <= 0) { alert("時間(分)を入力してね"); return; }
+  const weight = state.profile.weight || 5;
+  const kcal = weight * (min / 60) * (INTENSITY[intensity] || 3);
+  state.walks.push({
+    id: crypto.randomUUID(),
+    ts: new Date().toISOString(),
+    minutes: min, intensity, kcal, note,
+  });
+  save();
+  $("#walkMin").value = "";
+  $("#walkNote").value = "";
+  renderAll();
+};
+
+$("#saveProfileBtn").onclick = () => {
+  state.profile = {
+    name: $("#dogName").value.trim(),
+    breed: $("#dogBreed").value.trim(),
+    age: parseFloat($("#dogAge").value) || 0,
+    weight: parseFloat($("#dogWeight").value) || 0,
+    target: parseFloat($("#dogTarget").value) || 0,
+    stage: $("#dogStage").value,
+  };
+  save();
+  renderAll();
+  alert("保存したよ🐾");
+};
+
+$("#exportBtn").onclick = () => {
+  const blob = new Blob([JSON.stringify(state, null, 2)], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = `wansuken_backup_${todayStr()}.json`;
+  a.click();
+  URL.revokeObjectURL(url);
+};
+
+$("#resetBtn").onclick = () => {
+  if (confirm("すべてのデータを削除します。よろしいですか？")) {
+    localStorage.removeItem(STORAGE_KEY);
+    state = defaultState();
+    renderAll();
+  }
+};
+
+renderAll();
+</script>
+</body>
+</html>
