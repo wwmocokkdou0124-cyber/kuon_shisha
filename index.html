@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>行政書士久遠事務所｜名古屋の飲食店・シーシャ・風俗営業・性風俗関連特殊営業の開業支援</title>
+  <meta name="description" content="名古屋の行政書士久遠事務所。飲食店営業許可・シーシャバー開業・風俗営業許可（1〜5号）・性風俗関連特殊営業の届出まで、開業に必要な許可申請をワンストップでサポートします。">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Meiryo', sans-serif;
+      color: #333;
+      line-height: 1.75;
+      background: #fff;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      background: #1a3558;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+    }
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      color: #fff;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-decoration: none;
+    }
+    .logo span { color: #d4a843; }
+
+    nav ul { list-style: none; display: flex; gap: 28px; }
+    nav a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: #d4a843; }
+
+    .nav-cta {
+      background: #d4a843;
+      color: #1a3558 !important;
+      padding: 8px 20px;
+      border-radius: 4px;
+      font-weight: 700 !important;
+    }
+    .nav-cta:hover { background: #b8902d; color: #1a3558 !important; }
+
+    /* ===== HERO ===== */
+    .hero {
+      background: linear-gradient(135deg, #1a3558 0%, #2c5282 100%);
+      color: white;
+      padding: 96px 24px 80px;
+      text-align: center;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: #d4a843;
+      color: #1a3558;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      padding: 5px 18px;
+      border-radius: 20px;
+      margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-size: 38px;
+      font-weight: 800;
+      line-height: 1.4;
+      margin-bottom: 18px;
+    }
+    .hero p {
+      font-size: 17px;
+      color: rgba(255,255,255,0.82);
+      margin-bottom: 40px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: #d4a843;
+      color: #1a3558;
+      padding: 15px 40px;
+      border-radius: 4px;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .btn-primary:hover { background: #b8902d; }
+    .btn-outline {
+      background: transparent;
+      border: 2px solid rgba(255,255,255,0.55);
+      color: #fff;
+      padding: 15px 40px;
+      border-radius: 4px;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: border-color 0.2s;
+    }
+    .btn-outline:hover { border-color: #fff; }
+
+    /* ===== SECTION COMMON ===== */
+    section { padding: 80px 24px; }
+    .inner { max-width: 1100px; margin: 0 auto; }
+
+    .section-en {
+      color: #d4a843;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .section-title {
+      font-size: 28px;
+      font-weight: 800;
+      color: #1a3558;
+      margin-bottom: 10px;
+    }
+    .section-sub {
+      font-size: 15px;
+      color: #666;
+      margin-bottom: 48px;
+    }
+
+    /* ===== SERVICES ===== */
+    .services { background: #f5f7fa; }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    .service-card {
+      background: #fff;
+      border-radius: 8px;
+      padding: 32px 28px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+      border-top: 4px solid #d4a843;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.12);
+    }
+    .card-icon { font-size: 32px; margin-bottom: 14px; }
+    .card-title {
+      font-size: 19px;
+      font-weight: 700;
+      color: #1a3558;
+      margin-bottom: 10px;
+    }
+    .card-desc {
+      font-size: 14px;
+      color: #666;
+      line-height: 1.75;
+      margin-bottom: 16px;
+    }
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 18px;
+    }
+    .tag {
+      background: #eef2f8;
+      color: #1a3558;
+      font-size: 12px;
+      padding: 3px 11px;
+      border-radius: 20px;
+    }
+    .card-more {
+      color: #d4a843;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    /* ===== WHY ===== */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .why-item {
+      text-align: center;
+      padding: 36px 24px;
+      border-radius: 8px;
+      background: #f5f7fa;
+    }
+    .why-num {
+      font-size: 44px;
+      font-weight: 900;
+      color: #d4a843;
+      font-style: italic;
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+    .why-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #1a3558;
+      margin-bottom: 10px;
+    }
+    .why-desc { font-size: 13px; color: #666; }
+
+    /* ===== FLOW ===== */
+    .flow { background: #1a3558; }
+    .flow .section-title { color: #fff; }
+    .flow .section-sub { color: rgba(255,255,255,0.7); }
+
+    .flow-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .flow-step {
+      text-align: center;
+      padding: 28px 16px;
+      background: rgba(255,255,255,0.07);
+      border-radius: 8px;
+    }
+    .step-num {
+      background: #d4a843;
+      color: #1a3558;
+      font-size: 13px;
+      font-weight: 700;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 14px;
+    }
+    .step-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .step-desc { font-size: 12px; color: rgba(255,255,255,0.62); }
+
+    /* ===== CTA ===== */
+    .cta { background: #fff; }
+    .cta-box {
+      background: linear-gradient(135deg, #1a3558, #2c5282);
+      border-radius: 12px;
+      padding: 64px 40px;
+      color: white;
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .cta-free {
+      display: inline-block;
+      border: 1.5px solid rgba(255,255,255,0.45);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 16px;
+      border-radius: 20px;
+      margin-bottom: 22px;
+      letter-spacing: 0.08em;
+    }
+    .cta-box h2 { font-size: 26px; font-weight: 800; margin-bottom: 12px; }
+    .cta-box p { color: rgba(255,255,255,0.78); font-size: 15px; margin-bottom: 32px; }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #111827;
+      color: rgba(255,255,255,0.55);
+      padding: 48px 24px 24px;
+    }
+    .footer-inner { max-width: 1100px; margin: 0 auto; }
+    .footer-logo { color: #fff; font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+    .footer-logo span { color: #d4a843; }
+    .footer-info { font-size: 13px; margin-bottom: 28px; line-height: 1.8; }
+    .footer-links { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 28px; }
+    .footer-links a {
+      color: rgba(255,255,255,0.55);
+      text-decoration: none;
+      font-size: 13px;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: #d4a843; }
+    .footer-copy {
+      font-size: 12px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 20px;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 26px; }
+      .services-grid { grid-template-columns: 1fr; }
+      .why-grid { grid-template-columns: 1fr; }
+      .flow-steps { grid-template-columns: 1fr 1fr; }
+      nav ul { display: none; }
+      .cta-box { padding: 40px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header>
+  <div class="header-inner">
+    <a href="#" class="logo">行政書士<span>久遠</span>事務所</a>
+    <nav>
+      <ul>
+        <li><a href="#services">サービス</a></li>
+        <li><a href="#why">選ばれる理由</a></li>
+        <li><a href="#flow">ご依頼の流れ</a></li>
+        <li><a href="#contact" class="nav-cta">無料相談</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<div class="hero">
+  <div class="hero-badge">名古屋・愛知エリア対応</div>
+  <h1>飲食店・シーシャバー・<br>風俗営業の開業を<br>ワンストップでサポート</h1>
+  <p>「どの許可が必要かわからない」段階からご相談ください。<br>複雑な申請手続きをすべて代行し、スムーズな開業をお手伝いします。</p>
+  <div class="hero-buttons">
+    <a href="#contact" class="btn-primary">無料相談はこちら</a>
+    <a href="#services" class="btn-outline">サービス一覧を見る</a>
+  </div>
+</div>
+
+<!-- ===== SERVICES ===== -->
+<section class="services" id="services">
+  <div class="inner">
+    <div class="section-en">SERVICES</div>
+    <div class="section-title">対応サービス一覧</div>
+    <p class="section-sub">業態に応じた許可・届出を、わかりやすく丁寧にサポートします。</p>
+
+    <div class="services-grid">
+
+      <!-- 飲食店 -->
+      <a href="#" class="service-card">
+        <div class="card-icon">🍽️</div>
+        <div class="card-title">飲食店開業支援</div>
+        <p class="card-desc">居酒屋・バー・カフェ・スナック（接待なし）など一般飲食店の開業をサポート。保健所への飲食店営業許可から、深夜にお酒を提供する際の深夜酒類提供飲食店営業届出まで対応します。</p>
+        <div class="card-tags">
+          <span class="tag">飲食店営業許可</span>
+          <span class="tag">深夜酒類提供届</span>
+          <span class="tag">防火対象物使用開始届</span>
+        </div>
+        <div class="card-more">詳しく見る →</div>
+      </a>
+
+      <!-- シーシャ -->
+      <a href="#" class="service-card">
+        <div class="card-icon">💨</div>
+        <div class="card-title">シーシャバー開業支援</div>
+        <p class="card-desc">シーシャ（水タバコ）バーの開業に特化したサポート。飲食店営業許可に加え、シーシャ特有の製造たばこ出張販売許可まで一括取得。深夜営業・ノンアルコール営業など営業形態別にご相談ください。</p>
+        <div class="card-tags">
+          <span class="tag">製造たばこ出張販売許可</span>
+          <span class="tag">飲食店営業許可</span>
+          <span class="tag">深夜酒類提供届</span>
+        </div>
+        <div class="card-more">詳しく見る →</div>
+      </a>
+
+      <!-- 風俗営業 -->
+      <a href="#" class="service-card">
+        <div class="card-icon">🎵</div>
+        <div class="card-title">風俗営業許可（1号〜5号）</div>
+        <p class="card-desc">キャバクラ・ホストクラブ（1号）、低照度飲食店（2号）、区画席飲食店（3号）、マージャン店・パチンコ店（5号）など、風営法に基づく営業許可を警察署に代行申請します。</p>
+        <div class="card-tags">
+          <span class="tag">1号（キャバクラ・接待）</span>
+          <span class="tag">2号（低照度）</span>
+          <span class="tag">5号（パチンコ等）</span>
+        </div>
+        <div class="card-more">詳しく見る →</div>
+      </a>
+
+      <!-- 性風俗 -->
+      <a href="#" class="service-card">
+        <div class="card-icon">📋</div>
+        <div class="card-title">性風俗関連特殊営業</div>
+        <p class="card-desc">デリバリーヘルス・ファッションヘルス・ソープランドの届出から、myfans・ファンティアなどのアダルト配信（映像送信型性風俗特殊営業）の届出まで、風営法2条6項以降の手続きに対応します。</p>
+        <div class="card-tags">
+          <span class="tag">店舗型届出</span>
+          <span class="tag">無店舗型届出</span>
+          <span class="tag">映像送信型届出</span>
+        </div>
+        <div class="card-more">詳しく見る →</div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== WHY ===== -->
+<section id="why">
+  <div class="inner">
+    <div class="section-en">WHY CHOOSE US</div>
+    <div class="section-title">久遠事務所が選ばれる理由</div>
+    <p class="section-sub">一般的な行政書士が対応を避けがちな業種にも、正面から取り組みます。</p>
+
+    <div class="why-grid">
+      <div class="why-item">
+        <div class="why-num">01</div>
+        <div class="why-title">風営法・性風俗関連の<br>専門知識</div>
+        <p class="why-desc">敬遠されがちな風俗営業・性風俗関連特殊営業にも積極対応。法令の要件から警察署の実務運用まで熟知した専門家が担当します。</p>
+      </div>
+      <div class="why-item">
+        <div class="why-num">02</div>
+        <div class="why-title">名古屋・愛知エリアに<br>精通</div>
+        <p class="why-desc">地元の警察署・保健所・消防署との折衝実績が豊富。地域ごとの審査傾向や担当者の運用を把握し、スムーズな許可取得を実現します。</p>
+      </div>
+      <div class="why-item">
+        <div class="why-num">03</div>
+        <div class="why-title">相談から申請まで<br>一貫サポート</div>
+        <p class="why-desc">「何の許可が必要かわからない」段階から相談可能。必要な手続きを整理し、書類作成・申請・取得後のフォローまですべて対応します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FLOW ===== -->
+<section class="flow" id="flow">
+  <div class="inner">
+    <div class="section-en" style="color:#d4a843">FLOW</div>
+    <div class="section-title">ご依頼の流れ</div>
+    <p class="section-sub">お問い合わせから許可取得まで、すべてサポートします。</p>
+
+    <div class="flow-steps">
+      <div class="flow-step">
+        <div class="step-num">1</div>
+        <div class="step-title">無料相談</div>
+        <p class="step-desc">お電話またはメールでご相談ください。業態・場所・営業内容をヒアリングします。</p>
+      </div>
+      <div class="flow-step">
+        <div class="step-num">2</div>
+        <div class="step-title">必要許可の確認</div>
+        <p class="step-desc">営業形態に応じて必要な許可・届出を整理し、費用とスケジュールをご提示します。</p>
+      </div>
+      <div class="flow-step">
+        <div class="step-num">3</div>
+        <div class="step-title">書類作成・申請</div>
+        <p class="step-desc">申請書類をすべて作成し、警察署・保健所・消防署へ代行申請します。</p>
+      </div>
+      <div class="flow-step">
+        <div class="step-num">4</div>
+        <div class="step-title">許可取得・開業</div>
+        <p class="step-desc">許可取得後も不明点があればいつでもご連絡ください。開業後もサポートします。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="cta" id="contact">
+  <div class="inner">
+    <div class="cta-box">
+      <div class="cta-free">初回相談 無料</div>
+      <h2>まずはお気軽にご相談ください</h2>
+      <p>「どの許可が必要かわからない」そんなご相談から承っています。<br>秘密厳守・名古屋市内出張対応可。</p>
+      <a href="mailto:info@kuon-office.jp" class="btn-primary" style="font-size:16px; padding:17px 48px; display:inline-block;">お問い合わせ・無料相談</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">行政書士<span>久遠</span>事務所</div>
+    <p class="footer-info">
+      〒○○○-○○○○ 愛知県名古屋市○○区○○○<br>
+      TEL: 000-0000-0000　受付時間: 平日 9:00〜18:00（土日祝要相談）
+    </p>
+    <div class="footer-links">
+      <a href="#">ホーム</a>
+      <a href="#services">サービス一覧</a>
+      <a href="#why">選ばれる理由</a>
+      <a href="#flow">ご依頼の流れ</a>
+      <a href="#contact">お問い合わせ</a>
+      <a href="#">プライバシーポリシー</a>
+    </div>
+    <p class="footer-copy">© 2025 行政書士久遠事務所 All Rights Reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
