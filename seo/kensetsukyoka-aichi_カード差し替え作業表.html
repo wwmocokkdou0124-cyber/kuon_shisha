@@ -43,6 +43,7 @@ button.cp.done{border-color:var(--green);color:var(--green);background:var(--gre
 .ok{font-size:13.5px;background:var(--green-soft);border-radius:6px;padding:8px 12px}
 .why{font-size:13.5px;color:var(--muted)}
 code{font-family:ui-monospace,Menlo,monospace;font-size:12.5px;background:var(--code);padding:1px 5px;border-radius:3px;word-break:break-all}
+.tag.ok2{color:var(--green);border-color:var(--green)}
 .tag{font-size:12px;font-weight:700;color:var(--seal);border:1px solid var(--seal);border-radius:3px;padding:0 6px;margin-left:6px;white-space:nowrap;vertical-align:2px}
 
 .wrap{max-width:820px}
@@ -73,17 +74,17 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 <header>
 <span class="eyebrow">kensetsukyoka-aichi.jp ・ 2026年11月</span>
 <h1>記事カードの差し替え作業表</h1>
-<p class="meta">建設業と産廃の記事 126本の最後のカードを、内容に合う依頼ページに変えます（1本はタイトルだけ）。タイトル変更10本と説明文3本も、同じ記事を開いたときに一緒に終わるように入れてあります。古物商の記事は対象外です。</p>
+<p class="meta">建設業と産廃の記事 125本の最後のカードを、内容に合う依頼ページに変えます。依頼に近い順に「優先1〜3」に分けました。説明文が空の3本も、カードと一緒に入れられるようにしてあります（うち1本は説明文だけ）。タイトル変更10本は11月に反映済みです。古物商の記事は対象外です。</p>
 </header>
 
 <section class="art">
 <h2>やり方</h2>
 <ol class="steps">
-<li>下の「作業リスト」の記事を上から順に、SIRIUS2で開く。依頼に近い順（タイトル変更・説明文の記事 → 申請・経審 → 基礎知識 → 産廃 → 主任技術者 → 業種別）に並べ、同じグループの中は表示の多い順です。途中で止まっても、大事な記事から終わります</li>
+<li>「作業リスト」の優先1から順に、SIRIUS2で記事を開く（各グループの中は表示の多い順）</li>
 <li>本文のHTMLで <code>&lt;div class="linkcard"&gt;</code> から始まるかたまり（<code>&lt;/a&gt;</code> の次の <code>&lt;/div&gt;</code> まで）を探し、指定のカードのHTMLに丸ごと差し替える</li>
-<li><span class="tag">タイトル</span><span class="tag">説明文</span>がついた記事は、ここで一緒に変える（タイトルは本文のH1もそろえる）</li>
+<li><span class="tag">説明文</span>がついた記事は、SIRIUS2の説明文欄にも入れる</li>
 <li>保存して、左のチェックをつける（チェックはこのブラウザに保存されます）</li>
-<li>1日35本ずつ、4日で終わる目安です。1日目の最初の12本はタイトル・説明文も変えるので、その日のうちにサーチコンソールのURL検査で登録をリクエストする（1日10本程度まで。残りは翌日）。終わった日をSEO分析メモに1行書く（例：11/○ タイトル10本＋カード1〜35本目）</li>
+<li>グループが1つ終わったら、SEO分析メモに1行書く（例：11/○ カード 優先1 済み）</li>
 </ol>
 <p class="note"><b>注意：</b>カードがない記事は、「まとめ」の枠のすぐ後、「初回相談は無料です」の枠の前に貼り足します。カードが2枚ある記事は、指定の1枚だけを変えます。</p>
 <p class="why">「カードB・D・F・P1〜P4」は新しく作るカードです。専用の画像がまだないので、今の緑のカード画像（産廃は産廃のカード画像）を仮で使っています。専用の画像を作ったら <code>data-src</code> と <code>src</code> のファイル名だけ変えれば差し替えられます。</p>
@@ -167,116 +168,68 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 </section>
 
 <section>
-<h2>作業リスト（126本）</h2>
-<div class="prog"><span id="pc">0 / 126</span><span class="bar"><i id="pb"></i></span></div>
+<h2>作業リスト（125本）</h2>
+<div class="prog"><span id="pc">0 / 125</span><span class="bar"><i id="pb"></i></span></div>
 <div class="list">
-<h3 class="day">1日目（1〜35本目）</h3>
-<div class="row" data-id="category8/entry67.html">
-<label class="chk"><input type="checkbox"><span class="no">1</span></label>
-<div class="rb">
-<p class="rt"><a href="https://kensetsukyoka-aichi.jp/category8/entry67.html" target="_blank" rel="noopener">監理技術者の配置が必要な工事とは｜下請5,000万円以上で必要になります【愛知県の建設業許可】</a><span class="tag">タイトル</span></p>
-<p class="sub">主任技術者 ・ <code>category8/entry67.html</code> ・ 表示180回・8.3位</p>
-<p class="how"><span class="ck ck-A">カードA</span> 新規許可（entry89）　／　カード1枚 → <b>丸ごと差し替え</b></p>
-<div class="blk"><div class="blk-h"><span class="lbl">新しいタイトル（SIRIUS2のタイトル欄と、本文のH1の両方）</span><button class="cp" type="button">コピー</button></div><pre>監理技術者が必要な工事はいくらから？下請5,000万円の基準【令和7年改正】</pre></div><p class="sub">今：監理技術者の配置が必要な工事とは｜下請5,000万円以上で必要になります【愛知県の建設業許可】</p>
-</div></div>
-<div class="row" data-id="category6/entry43.html">
-<label class="chk"><input type="checkbox"><span class="no">2</span></label>
-<div class="rb">
-<p class="rt"><a href="https://kensetsukyoka-aichi.jp/category6/entry43.html" target="_blank" rel="noopener">建設業許可申請書の書き方｜様式第一号の記入ポイントと必要書類の順番【愛知県知事許可】</a><span class="tag">タイトル</span></p>
-<p class="sub">申請・手続き ・ <code>category6/entry43.html</code> ・ 表示155回・6.4位</p>
-<p class="how"><span class="ck ck-A">カードA</span> 新規許可（entry89）　／　カード1枚 → <b>丸ごと差し替え</b></p>
-<div class="blk"><div class="blk-h"><span class="lbl">新しいタイトル（SIRIUS2のタイトル欄と、本文のH1の両方）</span><button class="cp" type="button">コピー</button></div><pre>建設業許可申請書の書き方と記入例【愛知県】様式第一号から順番に解説</pre></div><p class="sub">今：建設業許可申請書の書き方｜様式第一号の記入ポイントと必要書類の順番【愛知県知事許可】</p>
-</div></div>
-<div class="row" data-id="category9/entry83.html">
-<label class="chk"><input type="checkbox"><span class="no">3</span></label>
-<div class="rb">
-<p class="rt"><a href="https://kensetsukyoka-aichi.jp/category9/entry83.html" target="_blank" rel="noopener">総合評定値（P点）とは｜計算式とX・Y・Z・Wの内訳を解説【建設業の経審】</a><span class="tag">タイトル</span></p>
-<p class="sub">経審 ・ <code>category9/entry83.html</code> ・ 表示133回・7.7位</p>
-<p class="how"><span class="ck ck-E">カードE</span> 経審（entry57）　／　カード1枚 → <b>丸ごと差し替え</b></p>
-<div class="blk"><div class="blk-h"><span class="lbl">新しいタイトル（SIRIUS2のタイトル欄と、本文のH1の両方）</span><button class="cp" type="button">コピー</button></div><pre>経審のP点（総合評定値）とは？計算式と点数を上げる方法【愛知県】</pre></div><p class="sub">今：総合評定値（P点）とは｜計算式とX・Y・Z・Wの内訳を解説【建設業の経審】</p>
-</div></div>
-<div class="row" data-id="category8/entry66.html">
-<label class="chk"><input type="checkbox"><span class="no">4</span></label>
-<div class="rb">
-<p class="rt"><a href="https://kensetsukyoka-aichi.jp/category8/entry66.html" target="_blank" rel="noopener">主任技術者の配置が必要な工事とは｜元請・下請・金額を問わず必要です【愛知県の建設業許可】</a><span class="tag">タイトル</span></p>
-<p class="sub">主任技術者 ・ <code>category8/entry66.html</code> ・ 表示114回・6.7位</p>
-<p class="how"><span class="ck ck-A">カードA</span> 新規許可（entry89）　／　カード1枚 → <b>丸ごと差し替え</b></p>
-<div class="blk"><div class="blk-h"><span class="lbl">新しいタイトル（SIRIUS2のタイトル欄と、本文のH1の両方）</span><button class="cp" type="button">コピー</button></div><pre>主任技術者が必要な工事とは？金額に関係なく必要な理由と例外</pre></div><p class="sub">今：主任技術者の配置が必要な工事とは｜元請・下請・金額を問わず必要です【愛知県の建設業許可】</p>
-</div></div>
-<div class="row" data-id="category8/entry70.html">
-<label class="chk"><input type="checkbox"><span class="no">5</span></label>
-<div class="rb">
-<p class="rt"><a href="https://kensetsukyoka-aichi.jp/category8/entry70.html" target="_blank" rel="noopener">監理技術者補佐とは？1級技士補で2現場を兼任できる専任特例2号を解説【愛知県の建設業許可】</a><span class="tag">タイトル</span></p>
-<p class="sub">主任技術者 ・ <code>category8/entry70.html</code> ・ 表示105回・7.5位</p>
-<p class="how"><span class="ck ck-A">カードA</span> 新規許可（entry89）　／　カード1枚 → <b>丸ごと差し替え</b></p>
-<div class="blk"><div class="blk-h"><span class="lbl">新しいタイトル（SIRIUS2のタイトル欄と、本文のH1の両方）</span><button class="cp" type="button">コピー</button></div><pre>監理技術者補佐とは？1級技士補で2現場を兼任できる条件</pre></div><p class="sub">今：監理技術者補佐とは？1級技士補で2現場を兼任できる専任特例2号を解説【愛知県の建設業許可】</p>
-</div></div>
+<h3 class="day">優先1：依頼にいちばん近い記事（36本）</h3><p class="sub">申請・手続き、経審、新規許可を考えている人が読む基礎記事（建設業許可とは・軽微な工事・無許可・経管・一人親方など）。説明文の空の3本もここ。今週中に</p>
 <div class="row" data-id="category3/entry7.html">
-<label class="chk"><input type="checkbox"><span class="no">6</span></label>
+<label class="chk"><input type="checkbox"><span class="no">1</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category3/entry7.html" target="_blank" rel="noopener">【愛知県の建設業許可】知事許可でも県外の工事はできる｜大臣許可との違いは「営業所」だけ</a><span class="tag">説明文</span></p>
 <p class="sub">基礎知識 ・ <code>category3/entry7.html</code> ・ 表示84回・6.1位</p>
 <p class="how"><span class="ck ck-A">カードA</span> 新規許可（entry89）　／　カード1枚 → <b>丸ごと差し替え</b></p>
 <div class="blk"><div class="blk-h"><span class="lbl">説明文（今は空・104字）</span><button class="cp" type="button">コピー</button></div><pre>愛知県知事許可でも、県外の現場で工事はできます。大臣許可との違いは施工場所ではなく「営業所が2県以上にあるか」だけ。営業所にあたる拠点・あたらない拠点、県外に営業所を出すときの手続きまで行政書士が解説します。</pre></div>
 </div></div>
-<div class="row" data-id="category3/entry11.html">
-<label class="chk"><input type="checkbox"><span class="no">7</span></label>
-<div class="rb">
-<p class="rt"><a href="https://kensetsukyoka-aichi.jp/category3/entry11.html" target="_blank" rel="noopener">【愛知県の建設業許可】建設業の許可票（金看板）とは｜サイズ・様式・掲示場所のルール</a><span class="tag">タイトル</span></p>
-<p class="sub">基礎知識 ・ <code>category3/entry11.html</code> ・ 表示61回・7.4位</p>
-<p class="how"><span class="ck ck-A">カードA</span> 新規許可（entry89）　／　カード1枚 → <b>丸ごと差し替え</b></p>
-<div class="blk"><div class="blk-h"><span class="lbl">新しいタイトル（SIRIUS2のタイトル欄と、本文のH1の両方）</span><button class="cp" type="button">コピー</button></div><pre>建設業の許可票（金看板）のサイズ・書き方・どこで作る？【愛知県】</pre></div><p class="sub">今：【愛知県の建設業許可】建設業の許可票（金看板）とは｜サイズ・様式・掲示場所のルール</p>
-</div></div>
 <div class="row" data-id="category7/entry62.html">
-<label class="chk"><input type="checkbox"><span class="no">8</span></label>
+<label class="chk"><input type="checkbox"><span class="no">2</span></label>
 <div class="rb">
-<p class="rt"><a href="https://kensetsukyoka-aichi.jp/category7/entry62.html" target="_blank" rel="noopener">建設業許可の業種はどう選ぶ？29業種の一覧と区分の考え方を行政書士が解説【愛知県】</a><span class="tag">タイトル</span><span class="tag">説明文</span></p>
+<p class="rt"><a href="https://kensetsukyoka-aichi.jp/category7/entry62.html" target="_blank" rel="noopener">建設業許可の業種はどう選ぶ？29業種の一覧と区分の考え方を行政書士が解説【愛知県】</a><span class="tag ok2">タイトル変更済み</span><span class="tag">説明文</span></p>
 <p class="sub">業種別 ・ <code>category7/entry62.html</code> ・ 表示61回・7.3位</p>
 <p class="how"><span class="ck ck-A">カードA</span> 新規許可（entry89）　／　カード1枚 → <b>丸ごと差し替え</b></p>
-<div class="blk"><div class="blk-h"><span class="lbl">新しいタイトル（SIRIUS2のタイトル欄と、本文のH1の両方）</span><button class="cp" type="button">コピー</button></div><pre>建設業許可の29業種一覧｜うちの工事はどの業種？選び方を解説【愛知県】</pre></div><p class="sub">今：建設業許可の業種はどう選ぶ？29業種の一覧と区分の考え方を行政書士が解説【愛知県】</p><div class="blk"><div class="blk-h"><span class="lbl">説明文（今は空・103字）</span><button class="cp" type="button">コピー</button></div><pre>建設業許可の29業種を、工事内容の例つきの一覧表で紹介します。一式工事と専門工事の違い、屋根・防水・上下水道など迷いやすい業種の見分け方、附帯工事なら許可がいらないケースまで、愛知県の行政書士が解説します。</pre></div>
-</div></div>
-<div class="row" data-id="category7/entry168.html">
-<label class="chk"><input type="checkbox"><span class="no">9</span></label>
-<div class="rb">
-<p class="rt"><a href="https://kensetsukyoka-aichi.jp/category7/entry168.html" target="_blank" rel="noopener">許可のない業種の工事を請け負ってもいい？附帯工事の範囲を解説【愛知県の建設業許可】</a><span class="tag">タイトル</span></p>
-<p class="sub">業種別 ・ <code>category7/entry168.html</code> ・ 表示60回・9.9位</p>
-<p class="how"><span class="ck ck-A">カードA</span> 新規許可（entry89）　／　カード2枚（どちらも category4/）→ <b>最後の1枚</b>を差し替え、もう1枚は削除</p>
-<div class="blk"><div class="blk-h"><span class="lbl">新しいタイトル（SIRIUS2のタイトル欄と、本文のH1の両方）</span><button class="cp" type="button">コピー</button></div><pre>許可のない業種の工事は請け負える？附帯工事になる条件【愛知県】</pre></div><p class="sub">今：許可のない業種の工事を請け負ってもいい？附帯工事の範囲を解説【愛知県の建設業許可】</p>
-</div></div>
-<div class="row" data-id="category3/entry27.html">
-<label class="chk"><input type="checkbox"><span class="no">10</span></label>
-<div class="rb">
-<p class="rt"><a href="https://kensetsukyoka-aichi.jp/category3/entry27.html" target="_blank" rel="noopener">【愛知県の建設業許可】愛知県で代表者が変わったら許可通知書は再発行される？元請への正しい証明方法</a><span class="tag">タイトル</span></p>
-<p class="sub">基礎知識 ・ <code>category3/entry27.html</code> ・ 表示57回・6.6位</p>
-<p class="how">カードは<b>そのまま</b>（タイトルだけ変える）</p>
-<div class="blk"><div class="blk-h"><span class="lbl">新しいタイトル（SIRIUS2のタイトル欄と、本文のH1の両方）</span><button class="cp" type="button">コピー</button></div><pre>建設業許可の代表者変更｜許可通知書は再発行される？元請への証明方法【愛知県】</pre></div><p class="sub">今：【愛知県の建設業許可】愛知県で代表者が変わったら許可通知書は再発行される？元請への正しい証明方法</p>
-</div></div>
-<div class="row" data-id="category3/entry24.html">
-<label class="chk"><input type="checkbox"><span class="no">11</span></label>
-<div class="rb">
-<p class="rt"><a href="https://kensetsukyoka-aichi.jp/category3/entry24.html" target="_blank" rel="noopener">【愛知県の建設業許可】令3条使用人とは？常勤が必要かテレワークは可能か</a><span class="tag">タイトル</span></p>
-<p class="sub">基礎知識 ・ <code>category3/entry24.html</code> ・ 表示52回・9.3位</p>
-<p class="how"><span class="ck ck-A">カードA</span> 新規許可（entry89）　／　カード1枚 → <b>丸ごと差し替え</b></p>
-<div class="blk"><div class="blk-h"><span class="lbl">新しいタイトル（SIRIUS2のタイトル欄と、本文のH1の両方）</span><button class="cp" type="button">コピー</button></div><pre>令3条使用人とは？常勤は必要？テレワークでもいいか【愛知県の建設業許可】</pre></div><p class="sub">今：【愛知県の建設業許可】令3条使用人とは？常勤が必要かテレワークは可能か</p>
+<div class="blk"><div class="blk-h"><span class="lbl">説明文（今は空・103字）</span><button class="cp" type="button">コピー</button></div><pre>建設業許可の29業種を、工事内容の例つきの一覧表で紹介します。一式工事と専門工事の違い、屋根・防水・上下水道など迷いやすい業種の見分け方、附帯工事なら許可がいらないケースまで、愛知県の行政書士が解説します。</pre></div>
 </div></div>
 <div class="row" data-id="category3/entry3.html">
-<label class="chk"><input type="checkbox"><span class="no">12</span></label>
+<label class="chk"><input type="checkbox"><span class="no">3</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category3/entry3.html" target="_blank" rel="noopener">【愛知県の建設業許可】建設業法とは？目的と全体構成をわかりやすく解説</a><span class="tag">説明文</span></p>
 <p class="sub">基礎知識 ・ <code>category3/entry3.html</code> ・ 表示29回・10.8位</p>
 <p class="how"><span class="ck ck-A">カードA</span> 新規許可（entry89）　／　カード1枚 → <b>丸ごと差し替え</b></p>
 <div class="blk"><div class="blk-h"><span class="lbl">説明文（今は空・88字）</span><button class="cp" type="button">コピー</button></div><pre>建設業法は、許可を取った後も守り続ける法律です。目的と章立ての全体像、下請を守るルール、近年の改正で押さえるべき点を、愛知県で建設業許可を扱う行政書士がわかりやすく解説します。</pre></div>
 </div></div>
+<div class="row" data-id="category6/entry43.html">
+<label class="chk"><input type="checkbox"><span class="no">4</span></label>
+<div class="rb">
+<p class="rt"><a href="https://kensetsukyoka-aichi.jp/category6/entry43.html" target="_blank" rel="noopener">建設業許可申請書の書き方｜様式第一号の記入ポイントと必要書類の順番【愛知県知事許可】</a><span class="tag ok2">タイトル変更済み</span></p>
+<p class="sub">申請・手続き ・ <code>category6/entry43.html</code> ・ 表示155回・6.4位</p>
+<p class="how"><span class="ck ck-A">カードA</span> 新規許可（entry89）　／　カード1枚 → <b>丸ごと差し替え</b></p>
+
+</div></div>
 <div class="row" data-id="category9/entry76.html">
-<label class="chk"><input type="checkbox"><span class="no">13</span></label>
+<label class="chk"><input type="checkbox"><span class="no">5</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category9/entry76.html" target="_blank" rel="noopener">経営事項審査（経審）とは｜公共工事に必要な審査の仕組みをわかりやすく解説【愛知県】</a></p>
 <p class="sub">経審 ・ <code>category9/entry76.html</code> ・ 表示150回・10.7位</p>
 <p class="how"><span class="ck ck-E">カードE</span> 経審（entry57）　／　カード1枚 → <b>丸ごと差し替え</b></p>
 
 </div></div>
+<div class="row" data-id="category3/entry14.html">
+<label class="chk"><input type="checkbox"><span class="no">6</span></label>
+<div class="rb">
+<p class="rt"><a href="https://kensetsukyoka-aichi.jp/category3/entry14.html" target="_blank" rel="noopener">【愛知県の建設業許可】建設業許可の経管には誰がなれる？｜常勤役員等の要件と令3条使用人を解説</a></p>
+<p class="sub">基礎知識 ・ <code>category3/entry14.html</code> ・ 表示133回・7.1位</p>
+<p class="how"><span class="ck ck-A">カードA</span> 新規許可（entry89）　／　カード1枚 → <b>丸ごと差し替え</b></p>
+
+</div></div>
+<div class="row" data-id="category9/entry83.html">
+<label class="chk"><input type="checkbox"><span class="no">7</span></label>
+<div class="rb">
+<p class="rt"><a href="https://kensetsukyoka-aichi.jp/category9/entry83.html" target="_blank" rel="noopener">総合評定値（P点）とは｜計算式とX・Y・Z・Wの内訳を解説【建設業の経審】</a><span class="tag ok2">タイトル変更済み</span></p>
+<p class="sub">経審 ・ <code>category9/entry83.html</code> ・ 表示133回・7.7位</p>
+<p class="how"><span class="ck ck-E">カードE</span> 経審（entry57）　／　カード1枚 → <b>丸ごと差し替え</b></p>
+
+</div></div>
 <div class="row" data-id="category6/entry42.html">
-<label class="chk"><input type="checkbox"><span class="no">14</span></label>
+<label class="chk"><input type="checkbox"><span class="no">8</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category6/entry42.html" target="_blank" rel="noopener">建設業許可の電子申請（JCIP）とは｜GビズIDの準備から手数料納付まで【愛知県知事許可】</a></p>
 <p class="sub">申請・手続き ・ <code>category6/entry42.html</code> ・ 表示129回・6.4位</p>
@@ -284,15 +237,23 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category6/entry48.html">
-<label class="chk"><input type="checkbox"><span class="no">15</span></label>
+<label class="chk"><input type="checkbox"><span class="no">9</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category6/entry48.html" target="_blank" rel="noopener">建設業許可申請でよくある不備｜愛知県の仮受付で止まらないための確認事項</a></p>
 <p class="sub">申請・手続き ・ <code>category6/entry48.html</code> ・ 表示88回・5.8位</p>
 <p class="how"><span class="ck ck-A">カードA</span> 新規許可（entry89）　／　カード1枚 → <b>丸ごと差し替え</b></p>
 
 </div></div>
+<div class="row" data-id="category3/entry4.html">
+<label class="chk"><input type="checkbox"><span class="no">10</span></label>
+<div class="rb">
+<p class="rt"><a href="https://kensetsukyoka-aichi.jp/category3/entry4.html" target="_blank" rel="noopener">【愛知県の建設業許可】建設業許可はいつ必要？契約時か着工時かを解説</a></p>
+<p class="sub">基礎知識 ・ <code>category3/entry4.html</code> ・ 表示78回・22.5位</p>
+<p class="how"><span class="ck ck-A">カードA</span> 新規許可（entry89）　／　カード1枚 → <b>丸ごと差し替え</b></p>
+
+</div></div>
 <div class="row" data-id="category9/entry80.html">
-<label class="chk"><input type="checkbox"><span class="no">16</span></label>
+<label class="chk"><input type="checkbox"><span class="no">11</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category9/entry80.html" target="_blank" rel="noopener">経営事項審査の手数料｜業種数別の一覧と納付方法を解説【愛知県】</a></p>
 <p class="sub">経審 ・ <code>category9/entry80.html</code> ・ 表示76回・8.1位</p>
@@ -300,7 +261,7 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category9/entry79.html">
-<label class="chk"><input type="checkbox"><span class="no">17</span></label>
+<label class="chk"><input type="checkbox"><span class="no">12</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category9/entry79.html" target="_blank" rel="noopener">経営事項審査の必要書類一覧｜提出書類と持参書類を行政書士が整理【愛知県】</a></p>
 <p class="sub">経審 ・ <code>category9/entry79.html</code> ・ 表示72回・8.1位</p>
@@ -308,15 +269,23 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category6/entry35.html">
-<label class="chk"><input type="checkbox"><span class="no">18</span></label>
+<label class="chk"><input type="checkbox"><span class="no">13</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category6/entry35.html" target="_blank" rel="noopener">建設業許可の取得期間は？愛知県知事許可の標準処理期間23日と逆算スケジュール</a></p>
 <p class="sub">申請・手続き ・ <code>category6/entry35.html</code> ・ 表示70回・7.0位</p>
 <p class="how"><span class="ck ck-A">カードA</span> 新規許可（entry89）　／　カード1枚 → <b>丸ごと差し替え</b></p>
 
 </div></div>
+<div class="row" data-id="category3/entry12.html">
+<label class="chk"><input type="checkbox"><span class="no">14</span></label>
+<div class="rb">
+<p class="rt"><a href="https://kensetsukyoka-aichi.jp/category3/entry12.html" target="_blank" rel="noopener">【愛知県の建設業許可】経営業務の管理責任者（経管）の要件とは｜組織で満たす方法も解説</a></p>
+<p class="sub">基礎知識 ・ <code>category3/entry12.html</code> ・ 表示59回・5.1位</p>
+<p class="how"><span class="ck ck-A">カードA</span> 新規許可（entry89）　／　カード1枚 → <b>丸ごと差し替え</b></p>
+
+</div></div>
 <div class="row" data-id="category6/entry40.html">
-<label class="chk"><input type="checkbox"><span class="no">19</span></label>
+<label class="chk"><input type="checkbox"><span class="no">15</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category6/entry40.html" target="_blank" rel="noopener">建設業許可の更新申請｜期限・必要書類・費用と失効したときの対応【愛知県】</a></p>
 <p class="sub">申請・手続き ・ <code>category6/entry40.html</code> ・ 表示54回・7.9位</p>
@@ -324,7 +293,7 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category6/entry46.html">
-<label class="chk"><input type="checkbox"><span class="no">20</span></label>
+<label class="chk"><input type="checkbox"><span class="no">16</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category6/entry46.html" target="_blank" rel="noopener">決算変更届（事業年度終了届）とは｜提出期限・必要書類・出し忘れの影響【愛知県】</a></p>
 <p class="sub">申請・手続き ・ <code>category6/entry46.html</code> ・ 表示45回・7.8位</p>
@@ -332,7 +301,7 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category6/entry36.html">
-<label class="chk"><input type="checkbox"><span class="no">21</span></label>
+<label class="chk"><input type="checkbox"><span class="no">17</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category6/entry36.html" target="_blank" rel="noopener">建設業許可の新規申請｜愛知県知事許可の要件・手数料9万円・必要書類を解説</a></p>
 <p class="sub">申請・手続き ・ <code>category6/entry36.html</code> ・ 表示37回・9.9位</p>
@@ -340,7 +309,7 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category6/entry52.html">
-<label class="chk"><input type="checkbox"><span class="no">22</span></label>
+<label class="chk"><input type="checkbox"><span class="no">18</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category6/entry52.html" target="_blank" rel="noopener">役員に前科があると建設業許可は取れない？欠格要件14項目と確認書類【愛知県】</a></p>
 <p class="sub">申請・手続き ・ <code>category6/entry52.html</code> ・ 表示37回・8.9位</p>
@@ -348,7 +317,7 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category6/entry44.html">
-<label class="chk"><input type="checkbox"><span class="no">23</span></label>
+<label class="chk"><input type="checkbox"><span class="no">19</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category6/entry44.html" target="_blank" rel="noopener">建設業許可の区分変更とは｜一般→特定・知事→大臣の手続きと要件【愛知県】</a></p>
 <p class="sub">申請・手続き ・ <code>category6/entry44.html</code> ・ 表示35回・5.6位</p>
@@ -356,23 +325,47 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category9/entry84.html">
-<label class="chk"><input type="checkbox"><span class="no">24</span></label>
+<label class="chk"><input type="checkbox"><span class="no">20</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category9/entry84.html" target="_blank" rel="noopener">経審の点数を上げる方法｜W評点の加点項目を行政書士が整理【令和8年7月改正対応】</a></p>
 <p class="sub">経審 ・ <code>category9/entry84.html</code> ・ 表示35回・7.1位</p>
 <p class="how"><span class="ck ck-E">カードE</span> 経審（entry57）　／　カード1枚 → <b>丸ごと差し替え</b></p>
 
 </div></div>
+<div class="row" data-id="category3/entry13.html">
+<label class="chk"><input type="checkbox"><span class="no">21</span></label>
+<div class="rb">
+<p class="rt"><a href="https://kensetsukyoka-aichi.jp/category3/entry13.html" target="_blank" rel="noopener">【愛知県の建設業許可】経管を外部から迎えて建設業許可を取る｜探し方・条件・名義貸しのリスク</a></p>
+<p class="sub">基礎知識 ・ <code>category3/entry13.html</code> ・ 表示33回・8.7位</p>
+<p class="how"><span class="ck ck-A">カードA</span> 新規許可（entry89）　／　カード1枚 → <b>丸ごと差し替え</b></p>
+
+</div></div>
+<div class="row" data-id="category3/entry61.html">
+<label class="chk"><input type="checkbox"><span class="no">22</span></label>
+<div class="rb">
+<p class="rt"><a href="https://kensetsukyoka-aichi.jp/category3/entry61.html" target="_blank" rel="noopener">建設業許可がいらない「軽微な建設工事」とは｜500万円未満の判定方法【愛知県】</a></p>
+<p class="sub">基礎知識 ・ <code>category3/entry61.html</code> ・ 表示33回・11.9位</p>
+<p class="how"><span class="ck ck-A">カードA</span> 新規許可（entry89）　／　カード1枚 → <b>丸ごと差し替え</b></p>
+
+</div></div>
 <div class="row" data-id="category9/entry88.html">
-<label class="chk"><input type="checkbox"><span class="no">25</span></label>
+<label class="chk"><input type="checkbox"><span class="no">23</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category9/entry88.html" target="_blank" rel="noopener">経審と入札参加資格の違い｜公共工事の受注に必要な2つの手続き【愛知県】</a></p>
 <p class="sub">経審 ・ <code>category9/entry88.html</code> ・ 表示32回・7.4位</p>
 <p class="how"><span class="ck ck-F">カードF</span> 入札参加資格（entry58）　／　カード1枚 → <b>丸ごと差し替え</b></p>
 
 </div></div>
+<div class="row" data-id="category3/entry60.html">
+<label class="chk"><input type="checkbox"><span class="no">24</span></label>
+<div class="rb">
+<p class="rt"><a href="https://kensetsukyoka-aichi.jp/category3/entry60.html" target="_blank" rel="noopener">建設業許可とは｜必要なケース・要件・費用・期間をわかりやすく解説【愛知県】</a></p>
+<p class="sub">基礎知識 ・ <code>category3/entry60.html</code> ・ 表示30回・18.0位</p>
+<p class="how"><span class="ck ck-A">カードA</span> 新規許可（entry89）　／　カード1枚 → <b>丸ごと差し替え</b></p>
+
+</div></div>
 <div class="row" data-id="category6/entry38.html">
-<label class="chk"><input type="checkbox"><span class="no">26</span></label>
+<label class="chk"><input type="checkbox"><span class="no">25</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category6/entry38.html" target="_blank" rel="noopener">般・特新規とは？一般建設業から特定建設業への切り替え申請を解説【愛知県】</a></p>
 <p class="sub">申請・手続き ・ <code>category6/entry38.html</code> ・ 表示26回・5.1位</p>
@@ -380,7 +373,7 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category9/entry82.html">
-<label class="chk"><input type="checkbox"><span class="no">27</span></label>
+<label class="chk"><input type="checkbox"><span class="no">26</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category9/entry82.html" target="_blank" rel="noopener">経営状況分析とは｜Y評点の8指標と登録分析機関への申請方法【建設業の経審】</a></p>
 <p class="sub">経審 ・ <code>category9/entry82.html</code> ・ 表示25回・9.2位</p>
@@ -388,7 +381,7 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category6/entry49.html">
-<label class="chk"><input type="checkbox"><span class="no">28</span></label>
+<label class="chk"><input type="checkbox"><span class="no">27</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category6/entry49.html" target="_blank" rel="noopener">経営業務の管理責任者の証明資料と請負確認｜愛知県の「年1件」と「12か月ルール」</a></p>
 <p class="sub">申請・手続き ・ <code>category6/entry49.html</code> ・ 表示24回・9.6位</p>
@@ -396,7 +389,7 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category6/entry50.html">
-<label class="chk"><input type="checkbox"><span class="no">29</span></label>
+<label class="chk"><input type="checkbox"><span class="no">28</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category6/entry50.html" target="_blank" rel="noopener">建設業許可の常勤性の確認資料｜健康保険証が使えなくなった後の愛知県の取扱い</a></p>
 <p class="sub">申請・手続き ・ <code>category6/entry50.html</code> ・ 表示24回・6.0位</p>
@@ -404,7 +397,7 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category6/entry34.html">
-<label class="chk"><input type="checkbox"><span class="no">30</span></label>
+<label class="chk"><input type="checkbox"><span class="no">29</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category6/entry34.html" target="_blank" rel="noopener">建設業許可の申請費用はいくら？手数料・実費・行政書士報酬の総額を解説【愛知県】</a></p>
 <p class="sub">申請・手続き ・ <code>category6/entry34.html</code> ・ 表示23回・7.2位</p>
@@ -412,7 +405,7 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category9/entry85.html">
-<label class="chk"><input type="checkbox"><span class="no">31</span></label>
+<label class="chk"><input type="checkbox"><span class="no">30</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category9/entry85.html" target="_blank" rel="noopener">令和8年7月 経審改正のポイント｜自主宣言制度の新設と社会保険項目の削除【愛知県】</a></p>
 <p class="sub">経審 ・ <code>category9/entry85.html</code> ・ 表示23回・11.3位</p>
@@ -420,7 +413,7 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category6/entry51.html">
-<label class="chk"><input type="checkbox"><span class="no">32</span></label>
+<label class="chk"><input type="checkbox"><span class="no">31</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category6/entry51.html" target="_blank" rel="noopener">建設業許可の要件は5つ｜愛知県で許可を取るために満たすべき条件を行政書士が解説</a></p>
 <p class="sub">申請・手続き ・ <code>category6/entry51.html</code> ・ 表示22回・9.2位</p>
@@ -428,7 +421,7 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category6/entry53.html">
-<label class="chk"><input type="checkbox"><span class="no">33</span></label>
+<label class="chk"><input type="checkbox"><span class="no">32</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category6/entry53.html" target="_blank" rel="noopener">建設業許可の誠実性とは｜不正・不誠実な行為の意味と判断される人の範囲【愛知県】</a></p>
 <p class="sub">申請・手続き ・ <code>category6/entry53.html</code> ・ 表示15回・15.6位</p>
@@ -436,7 +429,7 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category6/entry37.html">
-<label class="chk"><input type="checkbox"><span class="no">34</span></label>
+<label class="chk"><input type="checkbox"><span class="no">33</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category6/entry37.html" target="_blank" rel="noopener">許可替え新規（許可換え新規）とは？愛知県で必要になる3つのパターンと手続</a></p>
 <p class="sub">申請・手続き ・ <code>category6/entry37.html</code> ・ 表示14回・7.9位</p>
@@ -444,22 +437,30 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category9/entry77.html">
-<label class="chk"><input type="checkbox"><span class="no">35</span></label>
+<label class="chk"><input type="checkbox"><span class="no">34</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category9/entry77.html" target="_blank" rel="noopener">経営事項審査が必要な会社とは｜公共工事を受注するなら経審は必須です【愛知県】</a></p>
 <p class="sub">経審 ・ <code>category9/entry77.html</code> ・ 表示6回・6.8位</p>
 <p class="how"><span class="ck ck-E">カードE</span> 経審（entry57）　／　カード1枚 → <b>丸ごと差し替え</b></p>
 
 </div></div>
-<h3 class="day">2日目（36〜70本目）</h3>
-<div class="row" data-id="category3/entry14.html">
-<label class="chk"><input type="checkbox"><span class="no">36</span></label>
+<div class="row" data-id="category3/entry25.html">
+<label class="chk"><input type="checkbox"><span class="no">35</span></label>
 <div class="rb">
-<p class="rt"><a href="https://kensetsukyoka-aichi.jp/category3/entry14.html" target="_blank" rel="noopener">【愛知県の建設業許可】建設業許可の経管には誰がなれる？｜常勤役員等の要件と令3条使用人を解説</a></p>
-<p class="sub">基礎知識 ・ <code>category3/entry14.html</code> ・ 表示133回・7.1位</p>
+<p class="rt"><a href="https://kensetsukyoka-aichi.jp/category3/entry25.html" target="_blank" rel="noopener">【愛知県の建設業許可】社会保険に入ってない一人親方でも許可は取れる？｜加入義務の判定基準</a></p>
+<p class="sub">基礎知識 ・ <code>category3/entry25.html</code> ・ 表示5回・12.6位</p>
 <p class="how"><span class="ck ck-A">カードA</span> 新規許可（entry89）　／　カード1枚 → <b>丸ごと差し替え</b></p>
 
 </div></div>
+<div class="row" data-id="category3/entry207.html">
+<label class="chk"><input type="checkbox"><span class="no">36</span></label>
+<div class="rb">
+<p class="rt"><a href="https://kensetsukyoka-aichi.jp/category3/entry207.html" target="_blank" rel="noopener">無許可で500万円以上の工事を請け負うとどうなる？罰則・契約分割・元請の責任【愛知県の建設業許可】</a></p>
+<p class="sub">基礎知識 ・ <code>category3/entry207.html</code> ・ 表示0回・位</p>
+<p class="how"><span class="ck ck-A">カードA</span> 新規許可（entry89）　／　カードなし → 「まとめ」の枠の直後（「初回相談は無料です」の枠の前）に<b>貼り足す</b></p>
+
+</div></div>
+<h3 class="day">優先2：基礎知識の残りと産廃（41本）</h3><p class="sub">許可を取った後の人向けの記事は決算変更届・更新のカードへ。産廃は特別管理・積替え・他県・更新・取得後の記事だけ。来週に</p>
 <div class="row" data-id="category3/entry15.html">
 <label class="chk"><input type="checkbox"><span class="no">37</span></label>
 <div class="rb">
@@ -468,35 +469,35 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 <p class="how"><span class="ck ck-A">カードA</span> 新規許可（entry89）　／　カード1枚 → <b>丸ごと差し替え</b></p>
 
 </div></div>
-<div class="row" data-id="category3/entry4.html">
-<label class="chk"><input type="checkbox"><span class="no">38</span></label>
-<div class="rb">
-<p class="rt"><a href="https://kensetsukyoka-aichi.jp/category3/entry4.html" target="_blank" rel="noopener">【愛知県の建設業許可】建設業許可はいつ必要？契約時か着工時かを解説</a></p>
-<p class="sub">基礎知識 ・ <code>category3/entry4.html</code> ・ 表示78回・22.5位</p>
-<p class="how"><span class="ck ck-A">カードA</span> 新規許可（entry89）　／　カード1枚 → <b>丸ごと差し替え</b></p>
-
-</div></div>
 <div class="row" data-id="category3/entry29.html">
-<label class="chk"><input type="checkbox"><span class="no">39</span></label>
+<label class="chk"><input type="checkbox"><span class="no">38</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category3/entry29.html" target="_blank" rel="noopener">【建設業許可】経営業務の管理責任者・営業所技術者等はテレワークでも常勤性が認められる？愛知県の実務対応</a></p>
 <p class="sub">基礎知識 ・ <code>category3/entry29.html</code> ・ 表示63回・6.1位</p>
 <p class="how"><span class="ck ck-A">カードA</span> 新規許可（entry89）　／　カード1枚 → <b>丸ごと差し替え</b></p>
 
 </div></div>
-<div class="row" data-id="category3/entry12.html">
-<label class="chk"><input type="checkbox"><span class="no">40</span></label>
+<div class="row" data-id="category3/entry11.html">
+<label class="chk"><input type="checkbox"><span class="no">39</span></label>
 <div class="rb">
-<p class="rt"><a href="https://kensetsukyoka-aichi.jp/category3/entry12.html" target="_blank" rel="noopener">【愛知県の建設業許可】経営業務の管理責任者（経管）の要件とは｜組織で満たす方法も解説</a></p>
-<p class="sub">基礎知識 ・ <code>category3/entry12.html</code> ・ 表示59回・5.1位</p>
+<p class="rt"><a href="https://kensetsukyoka-aichi.jp/category3/entry11.html" target="_blank" rel="noopener">【愛知県の建設業許可】建設業の許可票（金看板）とは｜サイズ・様式・掲示場所のルール</a><span class="tag ok2">タイトル変更済み</span></p>
+<p class="sub">基礎知識 ・ <code>category3/entry11.html</code> ・ 表示61回・7.4位</p>
 <p class="how"><span class="ck ck-A">カードA</span> 新規許可（entry89）　／　カード1枚 → <b>丸ごと差し替え</b></p>
 
 </div></div>
 <div class="row" data-id="category3/entry5.html">
-<label class="chk"><input type="checkbox"><span class="no">41</span></label>
+<label class="chk"><input type="checkbox"><span class="no">40</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category3/entry5.html" target="_blank" rel="noopener">【愛知県の建設業許可】建設業許可｜元請の資材提供は請負金額に含める？</a></p>
 <p class="sub">基礎知識 ・ <code>category3/entry5.html</code> ・ 表示58回・6.7位</p>
+<p class="how"><span class="ck ck-A">カードA</span> 新規許可（entry89）　／　カード1枚 → <b>丸ごと差し替え</b></p>
+
+</div></div>
+<div class="row" data-id="category3/entry24.html">
+<label class="chk"><input type="checkbox"><span class="no">41</span></label>
+<div class="rb">
+<p class="rt"><a href="https://kensetsukyoka-aichi.jp/category3/entry24.html" target="_blank" rel="noopener">【愛知県の建設業許可】令3条使用人とは？常勤が必要かテレワークは可能か</a><span class="tag ok2">タイトル変更済み</span></p>
+<p class="sub">基礎知識 ・ <code>category3/entry24.html</code> ・ 表示52回・9.3位</p>
 <p class="how"><span class="ck ck-A">カードA</span> 新規許可（entry89）　／　カード1枚 → <b>丸ごと差し替え</b></p>
 
 </div></div>
@@ -532,40 +533,16 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 <p class="how"><span class="ck ck-A">カードA</span> 新規許可（entry89）　／　カード1枚 → <b>丸ごと差し替え</b></p>
 
 </div></div>
-<div class="row" data-id="category3/entry13.html">
-<label class="chk"><input type="checkbox"><span class="no">46</span></label>
-<div class="rb">
-<p class="rt"><a href="https://kensetsukyoka-aichi.jp/category3/entry13.html" target="_blank" rel="noopener">【愛知県の建設業許可】経管を外部から迎えて建設業許可を取る｜探し方・条件・名義貸しのリスク</a></p>
-<p class="sub">基礎知識 ・ <code>category3/entry13.html</code> ・ 表示33回・8.7位</p>
-<p class="how"><span class="ck ck-A">カードA</span> 新規許可（entry89）　／　カード1枚 → <b>丸ごと差し替え</b></p>
-
-</div></div>
-<div class="row" data-id="category3/entry61.html">
-<label class="chk"><input type="checkbox"><span class="no">47</span></label>
-<div class="rb">
-<p class="rt"><a href="https://kensetsukyoka-aichi.jp/category3/entry61.html" target="_blank" rel="noopener">建設業許可がいらない「軽微な建設工事」とは｜500万円未満の判定方法【愛知県】</a></p>
-<p class="sub">基礎知識 ・ <code>category3/entry61.html</code> ・ 表示33回・11.9位</p>
-<p class="how"><span class="ck ck-A">カードA</span> 新規許可（entry89）　／　カード1枚 → <b>丸ごと差し替え</b></p>
-
-</div></div>
 <div class="row" data-id="category3/entry64.html">
-<label class="chk"><input type="checkbox"><span class="no">48</span></label>
+<label class="chk"><input type="checkbox"><span class="no">46</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category3/entry64.html" target="_blank" rel="noopener">財産的基礎要件｜自己資本500万円の考え方と特定建設業の4つの基準【愛知県の建設業許可】</a></p>
 <p class="sub">基礎知識 ・ <code>category3/entry64.html</code> ・ 表示32回・7.5位</p>
 <p class="how"><span class="ck ck-A">カードA</span> 新規許可（entry89）　／　カード1枚 → <b>丸ごと差し替え</b></p>
 
 </div></div>
-<div class="row" data-id="category3/entry60.html">
-<label class="chk"><input type="checkbox"><span class="no">49</span></label>
-<div class="rb">
-<p class="rt"><a href="https://kensetsukyoka-aichi.jp/category3/entry60.html" target="_blank" rel="noopener">建設業許可とは｜必要なケース・要件・費用・期間をわかりやすく解説【愛知県】</a></p>
-<p class="sub">基礎知識 ・ <code>category3/entry60.html</code> ・ 表示30回・18.0位</p>
-<p class="how"><span class="ck ck-A">カードA</span> 新規許可（entry89）　／　カード1枚 → <b>丸ごと差し替え</b></p>
-
-</div></div>
 <div class="row" data-id="category3/entry20.html">
-<label class="chk"><input type="checkbox"><span class="no">50</span></label>
+<label class="chk"><input type="checkbox"><span class="no">47</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category3/entry20.html" target="_blank" rel="noopener">【建設業許可】出向社員でも経管・営業所技術者等になれる？｜愛知県で必要な確認資料</a></p>
 <p class="sub">基礎知識 ・ <code>category3/entry20.html</code> ・ 表示27回・10.3位</p>
@@ -573,7 +550,7 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category3/entry63.html">
-<label class="chk"><input type="checkbox"><span class="no">51</span></label>
+<label class="chk"><input type="checkbox"><span class="no">48</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category3/entry63.html" target="_blank" rel="noopener">営業所技術者等とは？一般・特定の要件と専任性を解説【愛知県の建設業許可】</a></p>
 <p class="sub">基礎知識 ・ <code>category3/entry63.html</code> ・ 表示24回・8.9位</p>
@@ -581,7 +558,7 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category3/entry21.html">
-<label class="chk"><input type="checkbox"><span class="no">52</span></label>
+<label class="chk"><input type="checkbox"><span class="no">49</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category3/entry21.html" target="_blank" rel="noopener">【建設業許可】設計の経験でも営業所技術者等になれる？｜愛知県の実務経験ルール</a></p>
 <p class="sub">基礎知識 ・ <code>category3/entry21.html</code> ・ 表示14回・6.6位</p>
@@ -589,7 +566,7 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category3/entry16.html">
-<label class="chk"><input type="checkbox"><span class="no">53</span></label>
+<label class="chk"><input type="checkbox"><span class="no">50</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category3/entry16.html" target="_blank" rel="noopener">【愛知県の建設業許可】執行役と執行役員は何が違う？｜建設業許可では扱いが分かれます</a></p>
 <p class="sub">基礎知識 ・ <code>category3/entry16.html</code> ・ 表示13回・13.2位</p>
@@ -597,7 +574,7 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category3/entry31.html">
-<label class="chk"><input type="checkbox"><span class="no">54</span></label>
+<label class="chk"><input type="checkbox"><span class="no">51</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category3/entry31.html" target="_blank" rel="noopener">【建設業許可】愛知県で事業承継するなら｜譲渡・合併は事前認可、相続は30日以内</a></p>
 <p class="sub">基礎知識 ・ <code>category3/entry31.html</code> ・ 表示13回・6.9位</p>
@@ -605,7 +582,7 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category3/entry19.html">
-<label class="chk"><input type="checkbox"><span class="no">55</span></label>
+<label class="chk"><input type="checkbox"><span class="no">52</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category3/entry19.html" target="_blank" rel="noopener">【愛知県の建設業許可】経管と営業所技術者等は兼務できる？｜一人親方でも許可が取れる理由</a></p>
 <p class="sub">基礎知識 ・ <code>category3/entry19.html</code> ・ 表示12回・6.6位</p>
@@ -613,7 +590,7 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category3/entry18.html">
-<label class="chk"><input type="checkbox"><span class="no">56</span></label>
+<label class="chk"><input type="checkbox"><span class="no">53</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category3/entry18.html" target="_blank" rel="noopener">【愛知県の建設業許可】技士補でも営業所技術者になれる？｜技術検定合格で実務経験が3年・5年に短縮</a></p>
 <p class="sub">基礎知識 ・ <code>category3/entry18.html</code> ・ 表示8回・6.8位</p>
@@ -621,7 +598,7 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category3/entry26.html">
-<label class="chk"><input type="checkbox"><span class="no">57</span></label>
+<label class="chk"><input type="checkbox"><span class="no">54</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category3/entry26.html" target="_blank" rel="noopener">【愛知県の建設業許可】電気工事・解体工事は別途登録が必須｜業種別の許認可一覧</a></p>
 <p class="sub">基礎知識 ・ <code>category3/entry26.html</code> ・ 表示7回・7.7位</p>
@@ -629,7 +606,7 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category3/entry23.html">
-<label class="chk"><input type="checkbox"><span class="no">58</span></label>
+<label class="chk"><input type="checkbox"><span class="no">55</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category3/entry23.html" target="_blank" rel="noopener">【建設業許可】500万円の財産的基礎はどう証明する？｜愛知県の残高証明書のルール</a></p>
 <p class="sub">基礎知識 ・ <code>category3/entry23.html</code> ・ 表示6回・13.2位</p>
@@ -637,31 +614,31 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category3/entry210.html">
-<label class="chk"><input type="checkbox"><span class="no">59</span></label>
+<label class="chk"><input type="checkbox"><span class="no">56</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category3/entry210.html" target="_blank" rel="noopener">施工体制台帳・施工体系図の作成義務｜下請5,000万円以上と公共工事【愛知県の建設業許可】</a></p>
 <p class="sub">基礎知識 ・ <code>category3/entry210.html</code> ・ 表示5回・34.0位</p>
 <p class="how"><span class="ck ck-D">カードD</span> 決算変更届（entry54）　／　カードなし → 「まとめ」の枠の直後（「初回相談は無料です」の枠の前）に<b>貼り足す</b></p>
 
 </div></div>
-<div class="row" data-id="category3/entry25.html">
-<label class="chk"><input type="checkbox"><span class="no">60</span></label>
-<div class="rb">
-<p class="rt"><a href="https://kensetsukyoka-aichi.jp/category3/entry25.html" target="_blank" rel="noopener">【愛知県の建設業許可】社会保険に入ってない一人親方でも許可は取れる？｜加入義務の判定基準</a></p>
-<p class="sub">基礎知識 ・ <code>category3/entry25.html</code> ・ 表示5回・12.6位</p>
-<p class="how"><span class="ck ck-A">カードA</span> 新規許可（entry89）　／　カード1枚 → <b>丸ごと差し替え</b></p>
-
-</div></div>
 <div class="row" data-id="category3/entry212.html">
-<label class="chk"><input type="checkbox"><span class="no">61</span></label>
+<label class="chk"><input type="checkbox"><span class="no">57</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category3/entry212.html" target="_blank" rel="noopener">一括下請負（丸投げ）の禁止とは｜実質的な関与の中身と例外【愛知県の建設業許可】</a></p>
 <p class="sub">基礎知識 ・ <code>category3/entry212.html</code> ・ 表示4回・9.5位</p>
 <p class="how"><span class="ck ck-D">カードD</span> 決算変更届（entry54）　／　カードなし → 「まとめ」の枠の直後（「初回相談は無料です」の枠の前）に<b>貼り足す</b></p>
 
 </div></div>
+<div class="row" data-id="category13/entry250.html">
+<label class="chk"><input type="checkbox"><span class="no">58</span></label>
+<div class="rb">
+<p class="rt"><a href="https://kensetsukyoka-aichi.jp/category13/entry250.html" target="_blank" rel="noopener">産廃許可を他県でも取るとき｜岐阜・三重・静岡と先行許可証</a></p>
+<p class="sub">産廃・手続き ・ <code>category13/entry250.html</code> ・ 表示2回・3.0位</p>
+<p class="how"><span class="ck ck-P4">カードP4</span> 他県まとめて（entry219）　／　カード1枚 → <b>丸ごと差し替え</b></p>
+
+</div></div>
 <div class="row" data-id="category3/entry211.html">
-<label class="chk"><input type="checkbox"><span class="no">62</span></label>
+<label class="chk"><input type="checkbox"><span class="no">59</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category3/entry211.html" target="_blank" rel="noopener">建設業許可を取った後にやること一覧｜毎年・5年ごと・変更時の手続き【愛知県】</a></p>
 <p class="sub">基礎知識 ・ <code>category3/entry211.html</code> ・ 表示2回・4.5位</p>
@@ -669,7 +646,7 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category3/entry208.html">
-<label class="chk"><input type="checkbox"><span class="no">63</span></label>
+<label class="chk"><input type="checkbox"><span class="no">60</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category3/entry208.html" target="_blank" rel="noopener">建設業の監督処分とは｜指示・営業停止・許可取消しの違いと影響【愛知県の建設業許可】</a></p>
 <p class="sub">基礎知識 ・ <code>category3/entry208.html</code> ・ 表示1回・8.0位</p>
@@ -677,7 +654,7 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category3/entry213.html">
-<label class="chk"><input type="checkbox"><span class="no">64</span></label>
+<label class="chk"><input type="checkbox"><span class="no">61</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category3/entry213.html" target="_blank" rel="noopener">建設工事の請負契約書に書くべき16項目｜注文書・請書や電子契約の条件【愛知県の建設業許可】</a></p>
 <p class="sub">基礎知識 ・ <code>category3/entry213.html</code> ・ 表示1回・9.0位</p>
@@ -685,39 +662,15 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category3/entry22.html">
-<label class="chk"><input type="checkbox"><span class="no">65</span></label>
+<label class="chk"><input type="checkbox"><span class="no">62</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category3/entry22.html" target="_blank" rel="noopener">【建設業許可】決算が悪いと特定建設業許可は無くなる？｜愛知県の特例措置も解説</a></p>
 <p class="sub">基礎知識 ・ <code>category3/entry22.html</code> ・ 表示1回・2.0位</p>
 <p class="how"><span class="ck ck-B">カードB</span> 更新（entry55）　／　カード1枚 → <b>丸ごと差し替え</b></p>
 
 </div></div>
-<div class="row" data-id="category3/entry207.html">
-<label class="chk"><input type="checkbox"><span class="no">66</span></label>
-<div class="rb">
-<p class="rt"><a href="https://kensetsukyoka-aichi.jp/category3/entry207.html" target="_blank" rel="noopener">無許可で500万円以上の工事を請け負うとどうなる？罰則・契約分割・元請の責任【愛知県の建設業許可】</a></p>
-<p class="sub">基礎知識 ・ <code>category3/entry207.html</code> ・ 表示0回・位</p>
-<p class="how"><span class="ck ck-A">カードA</span> 新規許可（entry89）　／　カードなし → 「まとめ」の枠の直後（「初回相談は無料です」の枠の前）に<b>貼り足す</b></p>
-
-</div></div>
-<div class="row" data-id="category3/entry209.html">
-<label class="chk"><input type="checkbox"><span class="no">67</span></label>
-<div class="rb">
-<p class="rt"><a href="https://kensetsukyoka-aichi.jp/category3/entry209.html" target="_blank" rel="noopener">建設業者の帳簿の備付け・保存義務｜記載事項と保存期間5年・10年【愛知県の建設業許可】</a></p>
-<p class="sub">基礎知識 ・ <code>category3/entry209.html</code> ・ 表示0回・位</p>
-<p class="how"><span class="ck ck-D">カードD</span> 決算変更届（entry54）　／　カードなし → 「まとめ」の枠の直後（「初回相談は無料です」の枠の前）に<b>貼り足す</b></p>
-
-</div></div>
-<div class="row" data-id="category13/entry250.html">
-<label class="chk"><input type="checkbox"><span class="no">68</span></label>
-<div class="rb">
-<p class="rt"><a href="https://kensetsukyoka-aichi.jp/category13/entry250.html" target="_blank" rel="noopener">産廃許可を他県でも取るとき｜岐阜・三重・静岡と先行許可証</a></p>
-<p class="sub">産廃・手続き ・ <code>category13/entry250.html</code> ・ 表示2回・3.0位</p>
-<p class="how"><span class="ck ck-P4">カードP4</span> 他県まとめて（entry219）　／　カード1枚 → <b>丸ごと差し替え</b></p>
-
-</div></div>
 <div class="row" data-id="category12/entry223.html">
-<label class="chk"><input type="checkbox"><span class="no">69</span></label>
+<label class="chk"><input type="checkbox"><span class="no">63</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category12/entry223.html" target="_blank" rel="noopener">特別管理産業廃棄物とは？普通の産廃との違いと必要な許可</a></p>
 <p class="sub">産廃・基礎 ・ <code>category12/entry223.html</code> ・ 表示0回・位</p>
@@ -725,16 +678,15 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category12/entry225.html">
-<label class="chk"><input type="checkbox"><span class="no">70</span></label>
+<label class="chk"><input type="checkbox"><span class="no">64</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category12/entry225.html" target="_blank" rel="noopener">積替え保管とは？ありとなしの違い・保管基準と愛知県の申請</a></p>
 <p class="sub">産廃・基礎 ・ <code>category12/entry225.html</code> ・ 表示0回・位</p>
 <p class="how"><span class="ck ck-P3">カードP3</span> 積替え保管あり（entry217）　／　カード2枚 → <b>1枚目</b>（「まとめて取得」のカード）を差し替え。2枚目（category11/）は残す</p>
 
 </div></div>
-<h3 class="day">3日目（71〜105本目）</h3>
 <div class="row" data-id="category12/entry235.html">
-<label class="chk"><input type="checkbox"><span class="no">71</span></label>
+<label class="chk"><input type="checkbox"><span class="no">65</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category12/entry235.html" target="_blank" rel="noopener">特別管理産業廃棄物収集運搬業許可の要件｜講習会と車両・容器</a></p>
 <p class="sub">産廃・基礎 ・ <code>category12/entry235.html</code> ・ 表示0回・位</p>
@@ -742,7 +694,7 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category13/entry243.html">
-<label class="chk"><input type="checkbox"><span class="no">72</span></label>
+<label class="chk"><input type="checkbox"><span class="no">66</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category13/entry243.html" target="_blank" rel="noopener">産廃許可の更新｜申請時期・講習会・必要書類と令和9年の変更点</a></p>
 <p class="sub">産廃・手続き ・ <code>category13/entry243.html</code> ・ 表示0回・位</p>
@@ -750,7 +702,7 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category13/entry244.html">
-<label class="chk"><input type="checkbox"><span class="no">73</span></label>
+<label class="chk"><input type="checkbox"><span class="no">67</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category13/entry244.html" target="_blank" rel="noopener">産廃許可の更新期限が切れたら？失効後の対応と取り直しの注意</a></p>
 <p class="sub">産廃・手続き ・ <code>category13/entry244.html</code> ・ 表示0回・位</p>
@@ -758,7 +710,7 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category14/entry254.html">
-<label class="chk"><input type="checkbox"><span class="no">74</span></label>
+<label class="chk"><input type="checkbox"><span class="no">68</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category14/entry254.html" target="_blank" rel="noopener">アスベスト（石綿）廃棄物の運搬に必要な許可｜廃石綿等との違い</a></p>
 <p class="sub">産廃・ケース別 ・ <code>category14/entry254.html</code> ・ 表示0回</p>
@@ -766,7 +718,7 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category15/entry267.html">
-<label class="chk"><input type="checkbox"><span class="no">75</span></label>
+<label class="chk"><input type="checkbox"><span class="no">69</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category15/entry267.html" target="_blank" rel="noopener">産廃マニフェストの流れと期限｜7枚の票の送付先と10日ルールとは</a></p>
 <p class="sub">産廃・取得後 ・ <code>category15/entry267.html</code> ・ 表示0回</p>
@@ -774,7 +726,7 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category15/entry268.html">
-<label class="chk"><input type="checkbox"><span class="no">76</span></label>
+<label class="chk"><input type="checkbox"><span class="no">70</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category15/entry268.html" target="_blank" rel="noopener">産廃許可の電子マニフェスト（JWNET）とは？3日以内の報告と紙との違い</a></p>
 <p class="sub">産廃・取得後 ・ <code>category15/entry268.html</code> ・ 表示0回</p>
@@ -782,7 +734,7 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category15/entry269.html">
-<label class="chk"><input type="checkbox"><span class="no">77</span></label>
+<label class="chk"><input type="checkbox"><span class="no">71</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category15/entry269.html" target="_blank" rel="noopener">産廃許可のマニフェスト交付等状況報告の出し方【愛知県】6月30日期限</a></p>
 <p class="sub">産廃・取得後 ・ <code>category15/entry269.html</code> ・ 表示0回</p>
@@ -790,7 +742,7 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category15/entry270.html">
-<label class="chk"><input type="checkbox"><span class="no">78</span></label>
+<label class="chk"><input type="checkbox"><span class="no">72</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category15/entry270.html" target="_blank" rel="noopener">産廃の委託契約書の必須記載事項｜令和8年1月の追加事項も解説</a></p>
 <p class="sub">産廃・取得後 ・ <code>category15/entry270.html</code> ・ 表示0回</p>
@@ -798,7 +750,7 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category15/entry272.html">
-<label class="chk"><input type="checkbox"><span class="no">79</span></label>
+<label class="chk"><input type="checkbox"><span class="no">73</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category15/entry272.html" target="_blank" rel="noopener">産廃運搬車両の表示ルール｜文字の大きさ・表示例と備え付け書面</a></p>
 <p class="sub">産廃・取得後 ・ <code>category15/entry272.html</code> ・ 表示0回</p>
@@ -806,7 +758,7 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category15/entry273.html">
-<label class="chk"><input type="checkbox"><span class="no">80</span></label>
+<label class="chk"><input type="checkbox"><span class="no">74</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category15/entry273.html" target="_blank" rel="noopener">産廃収集運搬業者の帳簿の書き方｜記載事項・期限・5年保存</a></p>
 <p class="sub">産廃・取得後 ・ <code>category15/entry273.html</code> ・ 表示0回</p>
@@ -814,7 +766,7 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category15/entry274.html">
-<label class="chk"><input type="checkbox"><span class="no">81</span></label>
+<label class="chk"><input type="checkbox"><span class="no">75</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category15/entry274.html" target="_blank" rel="noopener">産廃の保管基準と掲示板の書き方｜収集運搬基準もまとめて解説</a></p>
 <p class="sub">産廃・取得後 ・ <code>category15/entry274.html</code> ・ 表示0回</p>
@@ -822,15 +774,24 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category15/entry276.html">
-<label class="chk"><input type="checkbox"><span class="no">82</span></label>
+<label class="chk"><input type="checkbox"><span class="no">76</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category15/entry276.html" target="_blank" rel="noopener">産廃許可が取り消されるケース｜行政処分の種類と防ぎ方</a></p>
 <p class="sub">産廃・取得後 ・ <code>category15/entry276.html</code> ・ 表示0回</p>
 <p class="how"><span class="ck ck-P1">カードP1</span> 産廃の更新（entry214）　／　カード1枚 → <b>丸ごと差し替え</b></p>
 
 </div></div>
+<div class="row" data-id="category3/entry209.html">
+<label class="chk"><input type="checkbox"><span class="no">77</span></label>
+<div class="rb">
+<p class="rt"><a href="https://kensetsukyoka-aichi.jp/category3/entry209.html" target="_blank" rel="noopener">建設業者の帳簿の備付け・保存義務｜記載事項と保存期間5年・10年【愛知県の建設業許可】</a></p>
+<p class="sub">基礎知識 ・ <code>category3/entry209.html</code> ・ 表示0回・位</p>
+<p class="how"><span class="ck ck-D">カードD</span> 決算変更届（entry54）　／　カードなし → 「まとめ」の枠の直後（「初回相談は無料です」の枠の前）に<b>貼り足す</b></p>
+
+</div></div>
+<h3 class="day">優先3：主任技術者と業種別（48本）</h3><p class="sub">現場の人が読む記事と、表示の少ない業種別の記事。依頼には遠いが、新規許可ページへのリンクを増やす意味はある。余裕のあるときに</p>
 <div class="row" data-id="category8/entry73.html">
-<label class="chk"><input type="checkbox"><span class="no">83</span></label>
+<label class="chk"><input type="checkbox"><span class="no">78</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category8/entry73.html" target="_blank" rel="noopener">下請業者も主任技術者の配置が必要｜職務・専任・省略できる特例を解説【愛知県の建設業許可】</a></p>
 <p class="sub">主任技術者 ・ <code>category8/entry73.html</code> ・ 表示873回・5.8位</p>
@@ -838,7 +799,7 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category8/entry72.html">
-<label class="chk"><input type="checkbox"><span class="no">84</span></label>
+<label class="chk"><input type="checkbox"><span class="no">79</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category8/entry72.html" target="_blank" rel="noopener">主任技術者・監理技術者は途中で交代できる？認められる条件と手続【愛知県の建設業許可】</a></p>
 <p class="sub">主任技術者 ・ <code>category8/entry72.html</code> ・ 表示485回・6.3位</p>
@@ -846,7 +807,7 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category8/entry69.html">
-<label class="chk"><input type="checkbox"><span class="no">85</span></label>
+<label class="chk"><input type="checkbox"><span class="no">80</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category8/entry69.html" target="_blank" rel="noopener">主任技術者は複数現場を兼務できる？専任特例1号の8要件を解説【愛知県の建設業許可】</a></p>
 <p class="sub">主任技術者 ・ <code>category8/entry69.html</code> ・ 表示321回・6.2位</p>
@@ -854,7 +815,7 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category8/entry74.html">
-<label class="chk"><input type="checkbox"><span class="no">86</span></label>
+<label class="chk"><input type="checkbox"><span class="no">81</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category8/entry74.html" target="_blank" rel="noopener">共同企業体（JV）の主任技術者・監理技術者｜甲型・乙型の配置ルール【愛知県の建設業許可】</a></p>
 <p class="sub">主任技術者 ・ <code>category8/entry74.html</code> ・ 表示243回・6.4位</p>
@@ -862,7 +823,7 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category8/entry65.html">
-<label class="chk"><input type="checkbox"><span class="no">87</span></label>
+<label class="chk"><input type="checkbox"><span class="no">82</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category8/entry65.html" target="_blank" rel="noopener">主任技術者と監理技術者の違い｜配置基準5,000万円と専任4,500万円を解説</a></p>
 <p class="sub">主任技術者 ・ <code>category8/entry65.html</code> ・ 表示219回・7.6位</p>
@@ -870,15 +831,39 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category8/entry68.html">
-<label class="chk"><input type="checkbox"><span class="no">88</span></label>
+<label class="chk"><input type="checkbox"><span class="no">83</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category8/entry68.html" target="_blank" rel="noopener">主任技術者・監理技術者の専任とは？対象工事・金額基準・専任期間を解説【愛知県の建設業許可】</a></p>
 <p class="sub">主任技術者 ・ <code>category8/entry68.html</code> ・ 表示181回・9.0位</p>
 <p class="how"><span class="ck ck-A">カードA</span> 新規許可（entry89）　／　カード1枚 → <b>丸ごと差し替え</b></p>
 
 </div></div>
+<div class="row" data-id="category8/entry67.html">
+<label class="chk"><input type="checkbox"><span class="no">84</span></label>
+<div class="rb">
+<p class="rt"><a href="https://kensetsukyoka-aichi.jp/category8/entry67.html" target="_blank" rel="noopener">監理技術者の配置が必要な工事とは｜下請5,000万円以上で必要になります【愛知県の建設業許可】</a><span class="tag ok2">タイトル変更済み</span></p>
+<p class="sub">主任技術者 ・ <code>category8/entry67.html</code> ・ 表示180回・8.3位</p>
+<p class="how"><span class="ck ck-A">カードA</span> 新規許可（entry89）　／　カード1枚 → <b>丸ごと差し替え</b></p>
+
+</div></div>
+<div class="row" data-id="category8/entry66.html">
+<label class="chk"><input type="checkbox"><span class="no">85</span></label>
+<div class="rb">
+<p class="rt"><a href="https://kensetsukyoka-aichi.jp/category8/entry66.html" target="_blank" rel="noopener">主任技術者の配置が必要な工事とは｜元請・下請・金額を問わず必要です【愛知県の建設業許可】</a><span class="tag ok2">タイトル変更済み</span></p>
+<p class="sub">主任技術者 ・ <code>category8/entry66.html</code> ・ 表示114回・6.7位</p>
+<p class="how"><span class="ck ck-A">カードA</span> 新規許可（entry89）　／　カード1枚 → <b>丸ごと差し替え</b></p>
+
+</div></div>
+<div class="row" data-id="category8/entry70.html">
+<label class="chk"><input type="checkbox"><span class="no">86</span></label>
+<div class="rb">
+<p class="rt"><a href="https://kensetsukyoka-aichi.jp/category8/entry70.html" target="_blank" rel="noopener">監理技術者補佐とは？1級技士補で2現場を兼任できる専任特例2号を解説【愛知県の建設業許可】</a><span class="tag ok2">タイトル変更済み</span></p>
+<p class="sub">主任技術者 ・ <code>category8/entry70.html</code> ・ 表示105回・7.5位</p>
+<p class="how"><span class="ck ck-A">カードA</span> 新規許可（entry89）　／　カード1枚 → <b>丸ごと差し替え</b></p>
+
+</div></div>
 <div class="row" data-id="category8/entry75.html">
-<label class="chk"><input type="checkbox"><span class="no">89</span></label>
+<label class="chk"><input type="checkbox"><span class="no">87</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category8/entry75.html" target="_blank" rel="noopener">配置技術者の「直接的かつ恒常的な雇用関係」とは｜出向・派遣・応援の可否を解説【愛知県の建設業許可】</a></p>
 <p class="sub">主任技術者 ・ <code>category8/entry75.html</code> ・ 表示101回・5.9位</p>
@@ -886,15 +871,23 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category8/entry71.html">
-<label class="chk"><input type="checkbox"><span class="no">90</span></label>
+<label class="chk"><input type="checkbox"><span class="no">88</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category8/entry71.html" target="_blank" rel="noopener">営業所技術者等は現場の主任技術者を兼務できる？3つのルートを解説【愛知県の建設業許可】</a></p>
 <p class="sub">主任技術者 ・ <code>category8/entry71.html</code> ・ 表示76回・5.4位</p>
 <p class="how"><span class="ck ck-A">カードA</span> 新規許可（entry89）　／　カード1枚 → <b>丸ごと差し替え</b></p>
 
 </div></div>
+<div class="row" data-id="category7/entry168.html">
+<label class="chk"><input type="checkbox"><span class="no">89</span></label>
+<div class="rb">
+<p class="rt"><a href="https://kensetsukyoka-aichi.jp/category7/entry168.html" target="_blank" rel="noopener">許可のない業種の工事を請け負ってもいい？附帯工事の範囲を解説【愛知県の建設業許可】</a><span class="tag ok2">タイトル変更済み</span></p>
+<p class="sub">業種別 ・ <code>category7/entry168.html</code> ・ 表示60回・9.9位</p>
+<p class="how"><span class="ck ck-A">カードA</span> 新規許可（entry89）　／　カード2枚（どちらも category4/）→ <b>最後の1枚</b>を差し替え、もう1枚は削除</p>
+
+</div></div>
 <div class="row" data-id="category7/entry169.html">
-<label class="chk"><input type="checkbox"><span class="no">91</span></label>
+<label class="chk"><input type="checkbox"><span class="no">90</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category7/entry169.html" target="_blank" rel="noopener">建設業許可はどんな資格で取れる？営業所技術者等になる3つのルートを解説【愛知県】</a></p>
 <p class="sub">業種別 ・ <code>category7/entry169.html</code> ・ 表示50回・6.6位</p>
@@ -902,7 +895,7 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category7/entry170.html">
-<label class="chk"><input type="checkbox"><span class="no">92</span></label>
+<label class="chk"><input type="checkbox"><span class="no">91</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category7/entry170.html" target="_blank" rel="noopener">電気工事で500万円以上の仕事を受けるには｜建設業許可の要件と実務経験の落とし穴【愛知県】</a></p>
 <p class="sub">業種別 ・ <code>category7/entry170.html</code> ・ 表示36回・7.8位</p>
@@ -910,7 +903,7 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category7/entry171.html">
-<label class="chk"><input type="checkbox"><span class="no">93</span></label>
+<label class="chk"><input type="checkbox"><span class="no">92</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category7/entry171.html" target="_blank" rel="noopener">建設業許可を取れば電気工事はできる？「みなし登録」が別に必要です【愛知県】</a></p>
 <p class="sub">業種別 ・ <code>category7/entry171.html</code> ・ 表示22回・8.9位</p>
@@ -918,7 +911,7 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category7/entry176.html">
-<label class="chk"><input type="checkbox"><span class="no">94</span></label>
+<label class="chk"><input type="checkbox"><span class="no">93</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category7/entry176.html" target="_blank" rel="noopener">足場・杭・土工事の許可はどれ？とび・土工・コンクリート工事業の範囲【愛知県の建設業許可】</a></p>
 <p class="sub">業種別 ・ <code>category7/entry176.html</code> ・ 表示21回・16.9位</p>
@@ -926,7 +919,7 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category7/entry174.html">
-<label class="chk"><input type="checkbox"><span class="no">95</span></label>
+<label class="chk"><input type="checkbox"><span class="no">94</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category7/entry174.html" target="_blank" rel="noopener">解体工事業の建設業許可｜技術者に誰を置ける？とび・土工との違いも解説【愛知県】</a></p>
 <p class="sub">業種別 ・ <code>category7/entry174.html</code> ・ 表示13回・4.1位</p>
@@ -934,7 +927,7 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category7/entry203.html">
-<label class="chk"><input type="checkbox"><span class="no">96</span></label>
+<label class="chk"><input type="checkbox"><span class="no">95</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category7/entry203.html" target="_blank" rel="noopener">太陽光発電設備の設置工事はどの業種？電気工事と屋根工事の分かれ目【愛知県の建設業許可】</a></p>
 <p class="sub">業種別 ・ <code>category7/entry203.html</code> ・ 表示11回・8.2位</p>
@@ -942,7 +935,7 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category7/entry177.html">
-<label class="chk"><input type="checkbox"><span class="no">97</span></label>
+<label class="chk"><input type="checkbox"><span class="no">96</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category7/entry177.html" target="_blank" rel="noopener">クロス・床・間仕切りで500万円以上の工事を受けるには｜内装仕上工事業の許可【愛知県】</a></p>
 <p class="sub">業種別 ・ <code>category7/entry177.html</code> ・ 表示8回・7.8位</p>
@@ -950,7 +943,7 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category7/entry173.html">
-<label class="chk"><input type="checkbox"><span class="no">98</span></label>
+<label class="chk"><input type="checkbox"><span class="no">97</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category7/entry173.html" target="_blank" rel="noopener">浄化槽の工事をするのに登録はいる？管工事業の許可との関係【愛知県】</a></p>
 <p class="sub">業種別 ・ <code>category7/entry173.html</code> ・ 表示6回・7.8位</p>
@@ -958,7 +951,7 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category7/entry185.html">
-<label class="chk"><input type="checkbox"><span class="no">99</span></label>
+<label class="chk"><input type="checkbox"><span class="no">98</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category7/entry185.html" target="_blank" rel="noopener">リフォーム会社に建設業許可は必要？取るべき業種の選び方【愛知県】</a></p>
 <p class="sub">業種別 ・ <code>category7/entry185.html</code> ・ 表示6回・10.2位</p>
@@ -966,7 +959,7 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category7/entry193.html">
-<label class="chk"><input type="checkbox"><span class="no">100</span></label>
+<label class="chk"><input type="checkbox"><span class="no">99</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category7/entry193.html" target="_blank" rel="noopener">ブロック積みはどの業種？タイル・れんが・ブロック工事業の建設業許可【愛知県】</a></p>
 <p class="sub">業種別 ・ <code>category7/entry193.html</code> ・ 表示6回・4.2位</p>
@@ -974,7 +967,7 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category7/entry178.html">
-<label class="chk"><input type="checkbox"><span class="no">101</span></label>
+<label class="chk"><input type="checkbox"><span class="no">100</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category7/entry178.html" target="_blank" rel="noopener">大工工事業の建設業許可｜造作・型枠はどの業種？内装仕上との違い【愛知県】</a></p>
 <p class="sub">業種別 ・ <code>category7/entry178.html</code> ・ 表示5回・4.6位</p>
@@ -982,7 +975,7 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category7/entry204.html">
-<label class="chk"><input type="checkbox"><span class="no">102</span></label>
+<label class="chk"><input type="checkbox"><span class="no">101</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category7/entry204.html" target="_blank" rel="noopener">外構・エクステリア工事はどの業種の許可？施工内容別の対応表【愛知県の建設業許可】</a></p>
 <p class="sub">業種別 ・ <code>category7/entry204.html</code> ・ 表示5回・7.0位</p>
@@ -990,7 +983,7 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category7/entry188.html">
-<label class="chk"><input type="checkbox"><span class="no">103</span></label>
+<label class="chk"><input type="checkbox"><span class="no">102</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category7/entry188.html" target="_blank" rel="noopener">鉄骨工事の許可は鋼構造物？とび・土工？製作から請けるかで変わります【愛知県の建設業許可】</a></p>
 <p class="sub">業種別 ・ <code>category7/entry188.html</code> ・ 表示3回・2.3位</p>
@@ -998,7 +991,7 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category7/entry181.html">
-<label class="chk"><input type="checkbox"><span class="no">104</span></label>
+<label class="chk"><input type="checkbox"><span class="no">103</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category7/entry181.html" target="_blank" rel="noopener">屋根工事業の建設業許可｜板金工事とどちらを取るべき？範囲と資格【愛知県】</a></p>
 <p class="sub">業種別 ・ <code>category7/entry181.html</code> ・ 表示2回・3.5位</p>
@@ -1006,16 +999,15 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category7/entry186.html">
-<label class="chk"><input type="checkbox"><span class="no">105</span></label>
+<label class="chk"><input type="checkbox"><span class="no">104</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category7/entry186.html" target="_blank" rel="noopener">左官工事業の建設業許可｜モルタル・吹付けはどこまで？タイル・防水との違い【愛知県】</a></p>
 <p class="sub">業種別 ・ <code>category7/entry186.html</code> ・ 表示2回・7.5位</p>
 <p class="how"><span class="ck ck-A">カードA</span> 新規許可（entry89）　／　カード1枚 → <b>丸ごと差し替え</b></p>
 
 </div></div>
-<h3 class="day">4日目（106〜126本目）</h3>
 <div class="row" data-id="category7/entry187.html">
-<label class="chk"><input type="checkbox"><span class="no">106</span></label>
+<label class="chk"><input type="checkbox"><span class="no">105</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category7/entry187.html" target="_blank" rel="noopener">舗装工事業の建設業許可｜駐車場の舗装はどの業種？土木一式との違い【愛知県】</a></p>
 <p class="sub">業種別 ・ <code>category7/entry187.html</code> ・ 表示2回・5.0位</p>
@@ -1023,7 +1015,7 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category7/entry194.html">
-<label class="chk"><input type="checkbox"><span class="no">107</span></label>
+<label class="chk"><input type="checkbox"><span class="no">106</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category7/entry194.html" target="_blank" rel="noopener">板金工事業の建設業許可｜建築板金の範囲と屋根工事との違い【愛知県】</a></p>
 <p class="sub">業種別 ・ <code>category7/entry194.html</code> ・ 表示2回・2.5位</p>
@@ -1031,7 +1023,7 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category7/entry197.html">
-<label class="chk"><input type="checkbox"><span class="no">108</span></label>
+<label class="chk"><input type="checkbox"><span class="no">107</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category7/entry197.html" target="_blank" rel="noopener">擁壁・ブロック積みは石工事？石工事業の建設業許可と業種区分【愛知県】</a></p>
 <p class="sub">業種別 ・ <code>category7/entry197.html</code> ・ 表示2回・16.5位</p>
@@ -1039,7 +1031,7 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category7/entry199.html">
-<label class="chk"><input type="checkbox"><span class="no">109</span></label>
+<label class="chk"><input type="checkbox"><span class="no">108</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category7/entry199.html" target="_blank" rel="noopener">ウレタン吹付け断熱はどの業種？熱絶縁工事業の建設業許可【愛知県】</a></p>
 <p class="sub">業種別 ・ <code>category7/entry199.html</code> ・ 表示2回・9.5位</p>
@@ -1047,7 +1039,7 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category7/entry182.html">
-<label class="chk"><input type="checkbox"><span class="no">110</span></label>
+<label class="chk"><input type="checkbox"><span class="no">109</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category7/entry182.html" target="_blank" rel="noopener">建築一式の許可があれば何でも請け負える？誤解しやすい範囲を解説【愛知県の建設業許可】</a></p>
 <p class="sub">業種別 ・ <code>category7/entry182.html</code> ・ 表示1回・6.0位</p>
@@ -1055,7 +1047,7 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category7/entry184.html">
-<label class="chk"><input type="checkbox"><span class="no">111</span></label>
+<label class="chk"><input type="checkbox"><span class="no">110</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category7/entry184.html" target="_blank" rel="noopener">造園工事業の建設業許可｜植栽・外構・屋上緑化はどの業種？【愛知県】</a></p>
 <p class="sub">業種別 ・ <code>category7/entry184.html</code> ・ 表示1回・1.0位</p>
@@ -1063,7 +1055,7 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category7/entry189.html">
-<label class="chk"><input type="checkbox"><span class="no">112</span></label>
+<label class="chk"><input type="checkbox"><span class="no">111</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category7/entry189.html" target="_blank" rel="noopener">機械器具設置工事業の建設業許可｜他の業種に当たらない工事だけという判断基準【愛知県】</a></p>
 <p class="sub">業種別 ・ <code>category7/entry189.html</code> ・ 表示1回・20.0位</p>
@@ -1071,7 +1063,7 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category7/entry201.html">
-<label class="chk"><input type="checkbox"><span class="no">113</span></label>
+<label class="chk"><input type="checkbox"><span class="no">112</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category7/entry201.html" target="_blank" rel="noopener">さく井工事業の建設業許可｜井戸・温泉掘削に必要な要件【愛知県】</a></p>
 <p class="sub">業種別 ・ <code>category7/entry201.html</code> ・ 表示1回・9.0位</p>
@@ -1079,7 +1071,7 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category7/entry172.html">
-<label class="chk"><input type="checkbox"><span class="no">114</span></label>
+<label class="chk"><input type="checkbox"><span class="no">113</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category7/entry172.html" target="_blank" rel="noopener">管工事業の建設業許可｜給排水・空調はどこまで請け負える？業種の線引き【愛知県】</a></p>
 <p class="sub">業種別 ・ <code>category7/entry172.html</code> ・ 表示0回・位</p>
@@ -1087,7 +1079,7 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category7/entry179.html">
-<label class="chk"><input type="checkbox"><span class="no">115</span></label>
+<label class="chk"><input type="checkbox"><span class="no">114</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category7/entry179.html" target="_blank" rel="noopener">外壁塗装で500万円以上の工事を受けるには｜塗装工事業の建設業許可【愛知県】</a></p>
 <p class="sub">業種別 ・ <code>category7/entry179.html</code> ・ 表示0回・位</p>
@@ -1095,7 +1087,7 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category7/entry180.html">
-<label class="chk"><input type="checkbox"><span class="no">116</span></label>
+<label class="chk"><input type="checkbox"><span class="no">115</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category7/entry180.html" target="_blank" rel="noopener">防水工事業の建設業許可｜シーリングは塗装？防水？業種の区分を解説【愛知県】</a></p>
 <p class="sub">業種別 ・ <code>category7/entry180.html</code> ・ 表示0回・位</p>
@@ -1103,7 +1095,7 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category7/entry183.html">
-<label class="chk"><input type="checkbox"><span class="no">117</span></label>
+<label class="chk"><input type="checkbox"><span class="no">116</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category7/entry183.html" target="_blank" rel="noopener">土木一式工事業の建設業許可｜請け負える範囲と公共工事への進み方【愛知県】</a></p>
 <p class="sub">業種別 ・ <code>category7/entry183.html</code> ・ 表示0回・位</p>
@@ -1111,7 +1103,7 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category7/entry190.html">
-<label class="chk"><input type="checkbox"><span class="no">118</span></label>
+<label class="chk"><input type="checkbox"><span class="no">117</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category7/entry190.html" target="_blank" rel="noopener">防犯カメラ・LAN配線設置はどの業種？電気通信工事業の建設業許可【愛知県】</a></p>
 <p class="sub">業種別 ・ <code>category7/entry190.html</code> ・ 表示0回・位</p>
@@ -1119,7 +1111,7 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category7/entry191.html">
-<label class="chk"><input type="checkbox"><span class="no">119</span></label>
+<label class="chk"><input type="checkbox"><span class="no">118</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category7/entry191.html" target="_blank" rel="noopener">消防施設工事業の建設業許可｜消防設備士の資格で許可は取れる？【愛知県】</a></p>
 <p class="sub">業種別 ・ <code>category7/entry191.html</code> ・ 表示0回・位</p>
@@ -1127,7 +1119,7 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category7/entry192.html">
-<label class="chk"><input type="checkbox"><span class="no">120</span></label>
+<label class="chk"><input type="checkbox"><span class="no">119</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category7/entry192.html" target="_blank" rel="noopener">水道施設工事業の建設業許可｜管工事との違いと給水装置工事事業者の指定【愛知県】</a></p>
 <p class="sub">業種別 ・ <code>category7/entry192.html</code> ・ 表示0回・位</p>
@@ -1135,7 +1127,7 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category7/entry195.html">
-<label class="chk"><input type="checkbox"><span class="no">121</span></label>
+<label class="chk"><input type="checkbox"><span class="no">120</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category7/entry195.html" target="_blank" rel="noopener">サッシ・自動ドアの取付はどの業種？建具工事業の建設業許可【愛知県】</a></p>
 <p class="sub">業種別 ・ <code>category7/entry195.html</code> ・ 表示0回・位</p>
@@ -1143,7 +1135,7 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category7/entry196.html">
-<label class="chk"><input type="checkbox"><span class="no">122</span></label>
+<label class="chk"><input type="checkbox"><span class="no">121</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category7/entry196.html" target="_blank" rel="noopener">ガラス工事業の建設業許可｜工事の範囲と認められる資格・実務経験【愛知県】</a></p>
 <p class="sub">業種別 ・ <code>category7/entry196.html</code> ・ 表示0回・位</p>
@@ -1151,7 +1143,7 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category7/entry198.html">
-<label class="chk"><input type="checkbox"><span class="no">123</span></label>
+<label class="chk"><input type="checkbox"><span class="no">122</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category7/entry198.html" target="_blank" rel="noopener">鉄筋工事業の建設業許可｜工事の範囲と認められる資格・実務経験【愛知県】</a></p>
 <p class="sub">業種別 ・ <code>category7/entry198.html</code> ・ 表示0回・位</p>
@@ -1159,7 +1151,7 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category7/entry200.html">
-<label class="chk"><input type="checkbox"><span class="no">124</span></label>
+<label class="chk"><input type="checkbox"><span class="no">123</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category7/entry200.html" target="_blank" rel="noopener">清掃施設工事業の建設業許可｜管工事・水道施設工事との違い【愛知県】</a></p>
 <p class="sub">業種別 ・ <code>category7/entry200.html</code> ・ 表示0回・位</p>
@@ -1167,7 +1159,7 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category7/entry202.html">
-<label class="chk"><input type="checkbox"><span class="no">125</span></label>
+<label class="chk"><input type="checkbox"><span class="no">124</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category7/entry202.html" target="_blank" rel="noopener">しゅんせつ工事業の建設業許可｜工事の範囲と認められる資格【愛知県】</a></p>
 <p class="sub">業種別 ・ <code>category7/entry202.html</code> ・ 表示0回・位</p>
@@ -1175,7 +1167,7 @@ table.sum td:last-child,table.sum th:last-child{text-align:right;font-variant-nu
 
 </div></div>
 <div class="row" data-id="category7/entry205.html">
-<label class="chk"><input type="checkbox"><span class="no">126</span></label>
+<label class="chk"><input type="checkbox"><span class="no">125</span></label>
 <div class="rb">
 <p class="rt"><a href="https://kensetsukyoka-aichi.jp/category7/entry205.html" target="_blank" rel="noopener">解体・改修工事の石綿（アスベスト）事前調査｜工作物は令和8年1月から有資格者が必要【愛知県】</a></p>
 <p class="sub">業種別 ・ <code>category7/entry205.html</code> ・ 表示0回・位</p>
