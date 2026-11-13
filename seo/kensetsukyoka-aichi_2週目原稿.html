@@ -1,0 +1,257 @@
+<title>2週目のコピペ原稿</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@600;700&display=swap">
+<style>
+/* Layout: one working column; each paste-able block has its own copy button */
+:root{
+  --bg:#f7f7f4; --surface:#ffffff; --ink:#1d2433; --muted:#5b6475; --line:#d9dce2;
+  --navy:#24365c; --seal:#b8322a; --seal-soft:#f6e3e0; --green:#2f6b45; --green-soft:#e2efe6; --code:#eef0f4;
+  --serif:"Noto Serif JP","Hiragino Mincho ProN","Yu Mincho",serif;
+  --sans:"Noto Sans JP","Hiragino Sans","Yu Gothic",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#14171d; --surface:#1c2028; --ink:#e6e8ec; --muted:#9aa2b1; --line:#323846;
+  --navy:#9fb4e0; --seal:#ef7d72; --seal-soft:#3a2220; --green:#7cc595; --green-soft:#1d3125; --code:#262b35; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#14171d; --surface:#1c2028; --ink:#e6e8ec; --muted:#9aa2b1; --line:#323846;
+  --navy:#9fb4e0; --seal:#ef7d72; --seal-soft:#3a2220; --green:#7cc595; --green-soft:#1d3125; --code:#262b35; color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.75;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:24px 64px}
+.wrap{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:36px}
+header{display:flex;flex-direction:column;gap:6px;border-bottom:2px solid var(--navy);padding-bottom:16px}
+.eyebrow{font-size:12px;letter-spacing:.12em;color:var(--muted)}
+h1{font-family:var(--serif);font-size:25px;line-height:1.4;margin:0;color:var(--navy);text-wrap:balance}
+h2{font-family:var(--serif);font-size:20px;margin:0 0 8px;color:var(--navy);text-wrap:balance}
+h3{font-size:16.5px;margin:0;text-wrap:balance}
+p{margin:0}
+.meta{font-size:13px;color:var(--muted)}
+nav{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:13.5px}
+nav a{color:var(--navy)}
+.art{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:18px 16px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.art .sub{font-size:13px;color:var(--muted)}
+.steps{margin:0;padding-left:1.4em;display:flex;flex-direction:column;gap:4px}
+.blk{display:flex;flex-direction:column;gap:6px;min-width:0}
+.blk-h{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.lbl{font-size:12.5px;font-weight:700;color:var(--muted);letter-spacing:.04em}
+pre{margin:0;background:var(--code);border-radius:6px;padding:10px 12px;white-space:pre-wrap;word-break:break-word;font-family:var(--sans);font-size:14px;line-height:1.7;max-height:none}
+button.cp{font:inherit;font-size:12.5px;font-weight:700;color:var(--navy);background:transparent;border:1px solid var(--navy);border-radius:999px;padding:2px 12px;cursor:pointer;white-space:nowrap}
+button.cp:hover{background:var(--navy);color:var(--surface)}
+button.cp:focus-visible{outline:2px solid var(--seal);outline-offset:2px}
+button.cp.done{border-color:var(--green);color:var(--green);background:var(--green-soft)}
+.note{font-size:13.5px;background:var(--seal-soft);color:var(--ink);border-radius:6px;padding:8px 12px}
+.note b{color:var(--seal)}
+.ok{font-size:13.5px;background:var(--green-soft);border-radius:6px;padding:8px 12px}
+.why{font-size:13.5px;color:var(--muted)}
+code{font-family:ui-monospace,Menlo,monospace;font-size:12.5px;background:var(--code);padding:1px 5px;border-radius:3px;word-break:break-all}
+.tag{font-size:12px;font-weight:700;color:var(--seal);border:1px solid var(--seal);border-radius:3px;padding:0 6px;margin-left:6px;white-space:nowrap;vertical-align:2px}
+</style>
+
+<div class="wrap">
+<header>
+  <span class="eyebrow">kensetsukyoka-aichi.jp　11月2週目（11/10〜11/16）</span>
+  <h1>代行の案内文とタイトル変更のコピペ原稿</h1>
+  <span class="meta">各ブロック右上の「コピー」で、そのままSIRIUS2に貼り付けられます。今の記事の中身（2026年11月5日時点）を読んで作りました。</span>
+  <nav>
+    <a href="#a1">① 代行の案内（3記事）</a>
+    <a href="#a2">② タイトル変更（7記事）</a>
+    <a href="#a3">作業後のチェック</a>
+  </nav>
+</header>
+
+<section id="a1" style="display:flex;flex-direction:column;gap:16px">
+  <h2>① 依頼に近い3記事に代行の案内を入れる</h2>
+  <p class="why">3記事とも、今は最後の案内カードが「建設業許可の申請代行（category4/）」の一覧ページになっています。記事を読む人がそのまま頼める<b>手続き別のページ</b>に変え、記事の途中にも案内を1つ入れます。</p>
+
+  <div class="art">
+    <h3>実務経験証明書（様式第9号）の書き方</h3>
+    <span class="sub">category6/entry47 ／ 319回表示・6.8位 ／ 読んでいる人：資格なし・経験10年で新規許可を自分で取ろうとしている人</span>
+    <ol class="steps">
+      <li>「裏付け資料はどこまで必要か」の章の<b>最後</b>（「よくあるご質問」の直前）に、下の案内ボックスを入れる</li>
+      <li>記事の最後のカードのリンクを <code>category4/</code> → <code>category4/entry89.html</code>（新規許可の代行）に変える</li>
+      <li>最後のLINEのコピペ用テンプレートを、下のものに差し替える</li>
+    </ol>
+    <div class="blk"><div class="blk-h"><span class="lbl">案内ボックスの見出し</span><button class="cp" type="button">コピー</button></div>
+<pre>実務経験の証明、まとめてお任せください</pre></div>
+    <div class="blk"><div class="blk-h"><span class="lbl">案内ボックスの本文</span><button class="cp" type="button">コピー</button></div>
+<pre>実務経験証明書は「10年分の工事を、1年ずつ、裏付け資料つきで」並べる書類です。前の会社への証明のお願い、残っている注文書・請求書の整理、どの業種で申請できるかの判断まで、行政書士が代わりに行います。
+
+▶新規許可の申請代行：143,000円〜（税込。県の手数料90,000円は別）
+▶「10年に足りるか」「この書類で証明できるか」の判定は無料です</pre></div>
+    <div class="blk"><div class="blk-h"><span class="lbl">ボタン（2つ）</span><button class="cp" type="button">コピー</button></div>
+<pre>LINEで無料判定してもらう　→ https://line.me/ti/p/eCO3NJQ_w9
+新規許可の代行について見る　→ https://kensetsukyoka-aichi.jp/category4/entry89.html</pre></div>
+    <div class="blk"><div class="blk-h"><span class="lbl">LINEのコピペ用テンプレート（差し替え）</span><button class="cp" type="button">コピー</button></div>
+<pre>建設業許可（実務経験）の相談です。
+・業種：（例：内装、管など）
+・経験年数：（例：約10年）
+・経験した会社：（例：今の会社のみ／前の会社が2社）
+・前の会社に証明を頼めるか：（例：頼める／廃業している）</pre></div>
+  </div>
+
+  <div class="art">
+    <h3>経審の技術職員名簿はどう書く？</h3>
+    <span class="sub">category9/entry86 ／ 1,278回表示・7.4位 ／ 読んでいる人：経審の書類を自分で作っている建設会社</span>
+    <ol class="steps">
+      <li>「資格区分で点数が6倍変わります」の章の<b>最後</b>に、下の案内ボックスを入れる</li>
+      <li>記事の途中にある「『建設業許可の相談』と送るだけ！建設業許可の取得代行いたします」のバナーを、この案内ボックスに置き換える（経審の記事なので）</li>
+      <li>最後のカードのリンクを <code>category4/</code> → <code>category4/entry57.html</code>（経審の代行）に変える</li>
+    </ol>
+    <div class="blk"><div class="blk-h"><span class="lbl">案内ボックスの見出し</span><button class="cp" type="button">コピー</button></div>
+<pre>技術職員名簿の作成から経審の申請まで代行します</pre></div>
+    <div class="blk"><div class="blk-h"><span class="lbl">案内ボックスの本文</span><button class="cp" type="button">コピー</button></div>
+<pre>誰をどの業種に割り当てるかで、P点は変わります。資格証の確認、業種の割り当て、名簿の作成、雇用を確認する資料の準備、愛知県への申請までまとめてお引き受けします。
+
+▶経営事項審査の申請代行：165,000円（税込。手数料は別）
+▶毎年の決算変更届（33,000円）とセットでのご依頼も承ります
+▶「この資格はどの業種で使えるか」の確認だけでも無料です</pre></div>
+    <div class="blk"><div class="blk-h"><span class="lbl">ボタン（2つ）</span><button class="cp" type="button">コピー</button></div>
+<pre>LINEで無料相談する　→ https://line.me/ti/p/eCO3NJQ_w9
+経審の代行について見る　→ https://kensetsukyoka-aichi.jp/category4/entry57.html</pre></div>
+    <div class="blk"><div class="blk-h"><span class="lbl">LINEのコピペ用テンプレート（追加）</span><button class="cp" type="button">コピー</button></div>
+<pre>経営事項審査の相談です。
+・受審したい業種：（例：土木、とび・土工）
+・技術職員の人数と主な資格：（例：5人。1級土木施工管理技士2人など）
+・決算月：（例：3月）
+・経審は初めてか：（例：初めて／毎年受けている）</pre></div>
+    <p class="note"><b>タイトル変更はまだしない：</b>前回の報告どおり、この記事には「有資格区分コード」の一覧表がありません。表を追加してから「一覧」の入ったタイトルに変えます。今週は案内文だけでOKです。</p>
+  </div>
+
+  <div class="art">
+    <h3>建設キャリアアップシステム（CCUS）と経審</h3>
+    <span class="sub">category9/entry87 ／ 443回表示・6.3位 ／ 読んでいる人：経審の点数を上げたい建設会社</span>
+    <ol class="steps">
+      <li>「CCUS登録だけでは加点になりません」の章の<b>最後</b>（「まとめ」の直前）に、下の案内ボックスを入れる</li>
+      <li>途中の「建設業許可の相談」バナーを、この案内ボックスに置き換える</li>
+      <li>最後のカードのリンクを <code>category4/</code> → <code>category4/entry57.html</code> に変える</li>
+    </ol>
+    <div class="blk"><div class="blk-h"><span class="lbl">案内ボックスの見出し</span><button class="cp" type="button">コピー</button></div>
+<pre>CCUSの加点も含めて、経審をまとめて代行します</pre></div>
+    <div class="blk"><div class="blk-h"><span class="lbl">案内ボックスの本文</span><button class="cp" type="button">コピー</button></div>
+<pre>技能レベル向上者の数え方、就業履歴の蓄積措置を示す書類、自主宣言の時期（決算日より前）など、CCUSに関する項目は取りこぼしが起きやすいところです。加点できる項目の洗い出しから申請までお引き受けします。
+
+▶経営事項審査の申請代行：165,000円（税込。手数料は別）
+▶「CCUSで何点取れるか」の確認だけでも無料です</pre></div>
+    <div class="blk"><div class="blk-h"><span class="lbl">ボタン（2つ）</span><button class="cp" type="button">コピー</button></div>
+<pre>LINEで無料相談する　→ https://line.me/ti/p/eCO3NJQ_w9
+経審の代行について見る　→ https://kensetsukyoka-aichi.jp/category4/entry57.html</pre></div>
+    <div class="blk"><div class="blk-h"><span class="lbl">LINEのコピペ用テンプレート（追加）</span><button class="cp" type="button">コピー</button></div>
+<pre>経営事項審査（CCUS）の相談です。
+・CCUSの登録状況：（例：事業者登録済み、技能者10人登録）
+・現場でのカードタッチ：（例：している／していない）
+・決算月：（例：3月）</pre></div>
+  </div>
+</section>
+
+<section id="a2" style="display:flex;flex-direction:column;gap:16px">
+  <h2>② タイトルを変える（7記事）</h2>
+  <p class="why">SIRIUS2では、記事タイトルを変えると見出し（H1）も一緒に変わります。<b>URLは変えないでください。</b>変えた日をメモしておき、2〜4週間後にクリック率を比べます。</p>
+
+  <div class="art">
+    <h3>行商とは？（古物商）</h3>
+    <span class="sub">category10/entry100 ／ 291回表示・クリック率1.0%・8.7位 ／ 問題：説明文の1文目で答えを言い切っていて、検索結果だけで満足されてしまう</span>
+    <div class="blk"><div class="blk-h"><span class="lbl">新しいタイトル</span><button class="cp" type="button">コピー</button></div>
+<pre>行商とは？古物商の行商でできること・できないこと｜行商従業者証が必要な場面</pre></div>
+    <div class="blk"><div class="blk-h"><span class="lbl">新しい説明文</span><button class="cp" type="button">コピー</button></div>
+<pre>古物商の申請書で「行商しない」を選ぶと、出張買取や催事出店ができません。行商でできること・できないこと、買い取れる場所の制限、許可証と行商従業者証の携帯ルールを、愛知県警察の案内に沿って整理しました。</pre></div>
+    <div class="blk"><div class="blk-h"><span class="lbl">見出しの変更（「買い取れる場所には制限があります」を置き換え）</span><button class="cp" type="button">コピー</button></div>
+<pre>行商でも買い取れない場所がある（できないこと）</pre></div>
+  </div>
+
+  <div class="art">
+    <h3>建設業許可の流れ</h3>
+    <span class="sub">category6/entry33 ／ 198回表示・クリック率1.0%・13位 ／ 問題：「愛知県」が最後で切れる。説明文に誤字（直し済みならOK）</span>
+    <div class="blk"><div class="blk-h"><span class="lbl">新しいタイトル</span><button class="cp" type="button">コピー</button></div>
+<pre>【愛知県】建設業許可の取り方｜申請の流れ8ステップ・かかる期間と費用</pre></div>
+    <div class="blk"><div class="blk-h"><span class="lbl">新しい説明文</span><button class="cp" type="button">コピー</button></div>
+<pre>建設業許可は「書類集め1〜2か月＋審査1か月」が目安。愛知県知事許可の取り方を、許可が必要かの確認から許可通知までの8ステップで解説します。仮受付・本受付の流れ、手数料9万円、つまずきやすい書類まで稲沢市の行政書士が整理しました。</pre></div>
+    <p class="ok">ついでに：最後のカードのリンクを <code>category4/</code> → <code>category4/entry89.html</code>（新規許可の代行）に。</p>
+  </div>
+
+  <div class="art">
+    <h3>建設業許可の必要書類</h3>
+    <span class="sub">category6/entry32 ／ 143回表示・クリック0・8.8位 ／ 問題：タイトルが42字と長い。説明文が専門用語だらけ</span>
+    <div class="blk"><div class="blk-h"><span class="lbl">新しいタイトル</span><button class="cp" type="button">コピー</button></div>
+<pre>【愛知県】建設業許可の必要書類チェックリスト｜新規・更新・業種追加別</pre></div>
+    <div class="blk"><div class="blk-h"><span class="lbl">新しい説明文</span><button class="cp" type="button">コピー</button></div>
+<pre>愛知県で建設業許可を申請するときの必要書類を、チェックリストにまとめました。役所で取る証明書の有効期限と取る順番、経験や常勤を証明する資料、新規・更新・業種追加での違い、令和7年12月からの変更点まで、県の手引（令和8年4月版）に沿って解説します。</pre></div>
+    <p class="note"><b>タイトルに合わせて追加：</b>記事の冒頭近く（目次の直後）に、下のチェックリストを入れてください。記事の中の「官公署で取る書類と取得先・有効期限」の表から作ったので、内容は記事と一致しています。</p>
+    <div class="blk"><div class="blk-h"><span class="lbl">追加するチェックリスト（見出し＋本文）</span><button class="cp" type="button">コピー</button></div>
+<pre>まずはここから｜役所で取る書類チェックリスト
+
+□ 履歴事項全部証明書（法務局／3か月以内）※法人
+□ 登記されていないことの証明書（名古屋法務局／3か月以内）※本人・役員全員
+□ 身分証明書（本籍地の市区町村／3か月以内）※本人・役員全員
+□ 納税証明書・事業税（県税事務所）※新規・許可換え新規のみ
+□ 預金残高証明書（金融機関／申請直前4週間以内）※自己資本500万円未満の場合
+□ 健康保険・厚生年金の領収証書など（3か月以内）
+□ 所得証明書（市区町村）※経験や常勤の証明に使う場合
+□ 卒業証明書（出身学校）※指定学科の卒業で証明する場合
+
+3か月・4週間の期限があるため、期限の短い預金残高証明書は最後に取ります。申請書の様式（約20種類）は下の「新規申請で提出する様式」の一覧をご覧ください。</pre></div>
+    <div class="blk"><div class="blk-h"><span class="lbl">「書類集めでつまずきやすい7つのポイント」の直後に追加</span><button class="cp" type="button">コピー</button></div>
+<pre>書類集めから申請まで、まとめて代行します
+証明書の取得スケジュールの設計から、経験・常勤の証明資料の整理、愛知県への提出まで行政書士がお引き受けします。新規許可の申請代行は143,000円〜（税込。県の手数料90,000円は別）。「どの書類が手元にあれば足りるか」の確認は無料です。
+→ https://kensetsukyoka-aichi.jp/category4/entry89.html</pre></div>
+  </div>
+
+  <div class="art">
+    <h3>経審の流れ <span class="tag">クリック0</span></h3>
+    <span class="sub">category9/entry78 ／ 89回表示・5.8位でクリック0 ／ 関連する検索語：「愛知県 経審 日程」7位。知りたいのは「いつ何をすればいつ結果が出るか」</span>
+    <div class="blk"><div class="blk-h"><span class="lbl">新しいタイトル</span><button class="cp" type="button">コピー</button></div>
+<pre>【愛知県】経審の流れとスケジュール｜予約から結果通知までの期間と5ステップ</pre></div>
+    <div class="blk"><div class="blk-h"><span class="lbl">新しい説明文</span><button class="cp" type="button">コピー</button></div>
+<pre>愛知県の経審は予約制です。決算変更届を出すときに予約を申し出ると、翌月に審査、結果通知は翌々月末に届きます。経営状況分析の申請から結果を受け取るまでの5ステップ、受け付けてもらえないケース、入札に間に合わせる逆算の仕方を解説します。</pre></div>
+    <p class="ok">ついでに：最後のカードのリンクを <code>category4/</code> → <code>category4/entry57.html</code>（経審の代行）に。</p>
+  </div>
+
+  <div class="art">
+    <h3>経審の有効期間 <span class="tag">クリック0</span></h3>
+    <span class="sub">category9/entry81 ／ 75回表示・6.9位でクリック0 ／ 知りたいのは「うちの結果通知書はいつまで使えるか」</span>
+    <div class="blk"><div class="blk-h"><span class="lbl">新しいタイトル</span><button class="cp" type="button">コピー</button></div>
+<pre>経審の有効期間はいつまで？1年7ヶ月の数え方と切れる前にやること【愛知県】</pre></div>
+    <div class="blk"><div class="blk-h"><span class="lbl">新しい説明文</span><button class="cp" type="button">コピー</button></div>
+<pre>経審の結果通知書は、受け取った日ではなく決算日から1年7ヶ月有効です。自社の期限の数え方、期限が切れて公共工事を受注できない「空白期間」が生まれる理由、毎年切らさないためのスケジュールを、愛知県の運用に沿って解説します。</pre></div>
+    <p class="ok">ついでに：最後のカードのリンクを <code>category4/entry57.html</code> に。</p>
+  </div>
+
+  <div class="art">
+    <h3>建設業許可の変更届 <span class="tag">クリック0</span></h3>
+    <span class="sub">category6/entry45 ／ 49回表示・8.5位でクリック0 ／ 知りたいのは「役員が変わった。いつまでに何を出す？」</span>
+    <div class="blk"><div class="blk-h"><span class="lbl">新しいタイトル</span><button class="cp" type="button">コピー</button></div>
+<pre>建設業許可の変更届はいつまで？役員・商号・技術者の変更と期限一覧【愛知県】</pre></div>
+    <div class="blk"><div class="blk-h"><span class="lbl">新しい説明文</span><button class="cp" type="button">コピー</button></div>
+<pre>役員や商号、営業所技術者等が変わったら、建設業許可の変更届が必要です。期限は2週間・30日・4か月の3種類。変更の内容ごとの期限と必要書類を一覧にし、出し忘れたときの影響と、愛知県での出し方を解説します。</pre></div>
+  </div>
+
+  <div class="art">
+    <h3>業種追加 <span class="tag">クリック0</span></h3>
+    <span class="sub">category6/entry39 ／ 27回表示・4.8位でクリック0 ／ 知りたいのは「いくらかかる？今の技術者で追加できる？」</span>
+    <div class="blk"><div class="blk-h"><span class="lbl">新しいタイトル</span><button class="cp" type="button">コピー</button></div>
+<pre>建設業許可の業種追加｜手数料5万円・必要書類・技術者の条件【愛知県】</pre></div>
+    <div class="blk"><div class="blk-h"><span class="lbl">新しい説明文</span><button class="cp" type="button">コピー</button></div>
+<pre>今の建設業許可に別の業種を加える「業種追加」。愛知県の手数料は5万円で、追加する業種の営業所技術者等を置けるかが一番の関門です。必要書類、更新と同時に出すときの注意、許可の満了日をそろえる方法まで解説します。</pre></div>
+    <p class="ok">ついでに：最後のカードのリンクを <code>category4/</code> → <code>category4/entry56.html</code>（業種追加の代行・77,000円）に。</p>
+  </div>
+</section>
+
+<section id="a3" class="art">
+  <h2>作業後のチェック</h2>
+  <ol class="steps">
+    <li>アップロード後、スマホで各記事を開き、案内ボックスとボタンが正しく表示され、リンクが開くか確認</li>
+    <li>サーチコンソールの「URL検査」で、変えた記事の登録をリクエスト（1日に10本程度まで）</li>
+    <li>変えた日をメモ：<b>11月○日　entry47・86・87 案内追加／entry100・33・32・78・81・45・39 タイトル変更</b></li>
+    <li>終わったら教えてください。サイトをチェックして反映を確認します</li>
+  </ol>
+</section>
+</div>
+
+<script>
+document.querySelectorAll('button.cp').forEach(function(b){
+  b.addEventListener('click',function(){
+    var pre=b.closest('.blk').querySelector('pre'); var t=pre.textContent;
+    var done=function(){b.textContent='コピーしました';b.classList.add('done');setTimeout(function(){b.textContent='コピー';b.classList.remove('done')},1600)};
+    var fallback=function(){var r=document.createRange();r.selectNodeContents(pre);var s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='選択しました（Ctrl+C）'};
+    try{navigator.clipboard.writeText(t).then(done,fallback)}catch(e){fallback()}
+  });
+});
+</script>
