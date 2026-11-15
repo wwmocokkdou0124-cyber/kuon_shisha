@@ -309,3 +309,4 @@ category10/entry120（14.3%）、category10/entry111（7.5%）、category3/entry
 ## 22. メモ（2026-11-15）
 - サイトマップは https://kensetsukyoka-aichi.jp/sitemaps.xml （SIRIUS2が自動生成、更新のたびに中身も更新）。サーチコンソールとBing Webmaster Toolsにはこの名前で送る
 - サーチコンソールは「ドメイン」プロパティ。サイトマップはフルURL（https://kensetsukyoka-aichi.jp/sitemaps.xml）で入れる。11/15送信済み
+- Bing Webmaster Tools：11/15 サーチコンソールから取り込み（本人の申告。数日後にデータが出るか確認）
