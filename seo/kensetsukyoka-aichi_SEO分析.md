@@ -100,7 +100,7 @@ category10/entry120（14.3%）、category10/entry111（7.5%）、category3/entry
 - [ ] スマホ固定メニューの「問い合わせ」を office-kuon.com から本サイトのフォームに変更
 - [ ] 経審記事に有資格区分コード表を追加／記事内バナーをテーマ別に
 - [ ] 説明文が空のページ（13ページ）に説明文
-- [ ] XMLサイトマップをサーチコンソールに送信（2026-11-15確認：SIRIUS2が **sitemaps.xml**（sつき）を自動で作っている。312URL・新しいページ入り。sitemap.xml が404なのは名前が違うだけ）
+- [x] XMLサイトマップをサーチコンソールに送信（11/15送信済み。2026-11-15確認：SIRIUS2が **sitemaps.xml**（sつき）を自動で作っている。312URL・新しいページ入り。sitemap.xml が404なのは名前が違うだけ）
 - [ ] 尾張西部の地域ページ（中身は地域ごとに変える。量産コピーはNG）
 - [ ] 手続き別ページ（新規・更新・業種追加・決算変更届・経審）に料金と問い合わせ導線
 - [ ] 問い合わせしやすくする（LINE相談・初回無料・料金明記）
@@ -308,3 +308,4 @@ category10/entry120（14.3%）、category10/entry111（7.5%）、category3/entry
 
 ## 22. メモ（2026-11-15）
 - サイトマップは https://kensetsukyoka-aichi.jp/sitemaps.xml （SIRIUS2が自動生成、更新のたびに中身も更新）。サーチコンソールとBing Webmaster Toolsにはこの名前で送る
+- サーチコンソールは「ドメイン」プロパティ。サイトマップはフルURL（https://kensetsukyoka-aichi.jp/sitemaps.xml）で入れる。11/15送信済み
