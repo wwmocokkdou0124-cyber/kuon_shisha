@@ -2,29 +2,29 @@
 
 - ページのタイトルは、建設業の依頼ページと同じ形（手続き名｜地域・料金【事務所】）にそろえた案。料金は category11/ の料金表から
 - カードの説明文は、記事の最後に貼るリンクカードの文（60〜70字）。ページの説明文（meta description）は今のままでよい
-- 画像：今あるのは3枚。残り4枚は、今ある「card-sanpai-henkou.png」と同じ作り（800×800の正方形）で作る。各ページのトップ画像（00-fv-sanpai-○○.png）をもとにすると早い
+- 画像：7枚とも同じデザイン（800×800）で作成済み（11/17）。`seo/images/sanpai-cards/` にある。SIRIUS2の img フォルダに入れてアップロードし、カードの画像ファイル名を差し替え、width・height を 800 にする。変更許可と建設業許可とまとめての2枚は、今サイトにある画像と同じ名前・同じデザインなので、入れ替えても入れ替えなくてもよい
 
 | | ページ | URL | カード画像 |
 |---|---|---|---|
-| 1 | 新規（依頼トップ） | https://kensetsukyoka-aichi.jp/category11/ | card-thumb-sanpai.png（あり・600×600） |
-| 2 | 更新 | https://kensetsukyoka-aichi.jp/category11/entry214.html | **card-sanpai-koushin.png（作る）** |
+| 1 | 新規（依頼トップ） | https://kensetsukyoka-aichi.jp/category11/ | **card-sanpai-shinki.png（作成済み）**（今は card-thumb-sanpai.png・600×600） |
+| 2 | 更新 | https://kensetsukyoka-aichi.jp/category11/entry214.html | **card-sanpai-koushin.png（作成済み）** |
 | 3 | 変更許可・変更届 | https://kensetsukyoka-aichi.jp/category11/entry215.html | card-sanpai-henkou.png（あり） |
-| 4 | 特別管理産廃 | https://kensetsukyoka-aichi.jp/category11/entry216.html | **card-sanpai-tokkan.png（作る）** |
-| 5 | 積替え保管あり | https://kensetsukyoka-aichi.jp/category11/entry217.html | **card-sanpai-tsumikae.png（作る）** |
+| 4 | 特別管理産廃 | https://kensetsukyoka-aichi.jp/category11/entry216.html | **card-sanpai-tokkan.png（作成済み）** |
+| 5 | 積替え保管あり | https://kensetsukyoka-aichi.jp/category11/entry217.html | **card-sanpai-tsumikae.png（作成済み）** |
 | 6 | 建設業許可とまとめて | https://kensetsukyoka-aichi.jp/category11/entry218.html | card-sanpai-kensetsu.png（あり） |
-| 7 | 他県まとめて | https://kensetsukyoka-aichi.jp/category11/entry219.html | **card-sanpai-tokai.png（作る）** |
+| 7 | 他県まとめて | https://kensetsukyoka-aichi.jp/category11/entry219.html | **card-sanpai-tokai.png（作成済み）** |
 
 ## 1. 新規（依頼トップ）
 - ページのタイトル（今のまま）：産業廃棄物収集運搬業許可の申請代行｜愛知県・新規132,000円【稲沢市の行政書士】
 - カード名：産廃収集運搬業許可の申請代行｜新規132,000円
 - カードの説明文：他社のごみを運ぶなら収集運搬業許可が必要です。講習会・車両・経理的基礎の確認から、愛知県への申請までお引き受けします。
-- 画像：card-thumb-sanpai.png（あり）／画像の文字案：産廃許可の新規申請　132,000円
+- 画像：card-sanpai-shinki.png（作成済み）
 
 ## 2. 更新
 - ページのタイトル：産廃収集運搬業許可の更新代行｜愛知県・55,000円【稲沢市の行政書士】
 - カード名：産廃許可の更新代行｜55,000円
 - カードの説明文：有効期間は5年。愛知県から更新の通知は来ません。講習会の受け直しから書類の作成まで、期限に間に合うよう代行します。
-- 画像：card-sanpai-koushin.png（作る）／元にする画像：00-fv-sanpai-koushin (1).png／文字案：産廃許可の更新　5年ごと・55,000円
+- 画像：card-sanpai-koushin.png（作成済み）／元にする画像：00-fv-sanpai-koushin (1).png／文字案：産廃許可の更新　5年ごと・55,000円
 
 ## 3. 変更許可・変更届
 - ページのタイトル：産廃許可の変更許可・変更届の代行｜愛知県・22,000円〜【稲沢市の行政書士】
@@ -36,13 +36,13 @@
 - ページのタイトル：特別管理産業廃棄物収集運搬業許可の申請代行｜愛知県・154,000円【稲沢市の行政書士】
 - カード名：特別管理産廃の収集運搬業許可の申請代行｜154,000円
 - カードの説明文：廃油・廃酸・廃石綿等などの特別管理産業廃棄物は、普通の産廃の許可では運べません。講習会・車両・容器の確認から申請まで代行します。
-- 画像：card-sanpai-tokkan.png（作る）／元にする画像：00-fv-sanpai-tokkan.png／文字案：特別管理産廃の許可　154,000円
+- 画像：card-sanpai-tokkan.png（作成済み）／元にする画像：00-fv-sanpai-tokkan.png／文字案：特別管理産廃の許可　154,000円
 
 ## 5. 積替え保管あり
 - ページのタイトル：積替え保管ありの産廃収集運搬業許可の申請代行｜愛知県・330,000円〜【稲沢市の行政書士】
 - カード名：積替え保管ありの産廃許可の申請代行
 - カードの説明文：運ぶ途中で降ろして保管するなら、積替え保管を含む許可が必要です。場所選びの段階から、愛知県の事前相談まで一緒に進めます。
-- 画像：card-sanpai-tsumikae.png（作る）／元にする画像：00-fv-sanpai-tsumikae.png／文字案：積替え保管ありの許可　場所選びから相談
+- 画像：card-sanpai-tsumikae.png（作成済み）／元にする画像：00-fv-sanpai-tsumikae.png／文字案：積替え保管ありの許可　場所選びから相談
 
 ## 6. 建設業許可とまとめて取得
 - ページのタイトル：建設業許可と産廃許可をまとめて取得｜産廃の報酬22,000円引【稲沢市の行政書士】
@@ -54,4 +54,4 @@
 - ページのタイトル：岐阜・三重・静岡の産廃許可もまとめて申請｜2県目から20,000円引【稲沢市の行政書士】
 - カード名：岐阜・三重・静岡の産廃許可もまとめて申請
 - カードの説明文：産廃の許可は、積む県と降ろす県の両方で必要です。東海4県の申請をまとめて代行し、2県目からは1県につき20,000円引きます。
-- 画像：card-sanpai-tokai.png（作る）／元にする画像：00-fv-sanpai-tokai.png／文字案：東海4県まとめて申請　2県目から20,000円引
+- 画像：card-sanpai-tokai.png（作成済み）／元にする画像：00-fv-sanpai-tokai.png／文字案：東海4県まとめて申請　2県目から20,000円引
